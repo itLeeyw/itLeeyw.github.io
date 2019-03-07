@@ -1,146 +1,662 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Hexo在github上的部署方法目录1. GitHub配置2. Hexo配置3. 初始配置成功后再次创建博客4. 注意5. 主题设置1. Github配置创建一个名字为：你的github用户名.github.io 的仓库若不会创建github 详见我如何创建github博客2. Hexo配置12345678910111213141516171. mkdir repo _(repo可以是任意名字)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="easy_Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/Hexo-deploy-fun/index.html">
+<meta property="og:site_name" content="LeeywBlog">
+<meta property="og:description" content="Hexo在github上的部署方法目录1. GitHub配置2. Hexo配置3. 初始配置成功后再次创建博客4. 注意5. 主题设置1. Github配置创建一个名字为：你的github用户名.github.io 的仓库若不会创建github 详见我如何创建github博客2. Hexo配置12345678910111213141516171. mkdir repo _(repo可以是任意名字)">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-07T15:11:15.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="easy_Hexo">
+<meta name="twitter:description" content="Hexo在github上的部署方法目录1. GitHub配置2. Hexo配置3. 初始配置成功后再次创建博客4. 注意5. 主题设置1. Github配置创建一个名字为：你的github用户名.github.io 的仓库若不会创建github 详见我如何创建github博客2. Hexo配置12345678910111213141516171. mkdir repo _(repo可以是任意名字)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/Hexo-deploy-fun/">
+
+
+
+
+
   <title>easy_Hexo | LeeywBlog</title>
-  <meta name="author" content="Leeyw">
   
-  <meta name="description" content="Hexo在github上的部署方法目录1. GitHub配置2. Hexo配置3. 初始配置成功后再次创建博客4. 注意5. 主题设置1. Github配置创建一个名字为：你的github用户名.github.io 的仓库若不会创建github 详见我如何创建github博客2. Hexo配置123">
-  
-  
-  <meta property="og:title" content="easy_Hexo">
-  <meta property="og:site_name" content="LeeywBlog">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-    <meta property="og:image" content>
-  
-   <link rel="apple-touch-icon" href="/icon.png">
-   <link rel="shortcut icon" href="/favicon.png">
-   <link rel="alternate" href="http://xxx.xx/atom.xml" title="LeeywBlog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+
+
+
+
+
+
 </head>
-</html>
 
-<body>
-  <div id="content" class="inner">
-    <aside id="sidebar" class="alignleft">
-      <div class="navigationBar">
-        <a href="/">LeeywBlog</a>
-      </div>
-    	
-  <nav class="widget" id="menu">
-	<ul>
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
     
-      <li class="cell"><a class="next" href="/">Home</a></li><li>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-      </li><li class="cell"><a class="next" href="/archives/">Archives</a></li><li>
-    
-      </li><li class="cell"><a class="next" href="/about/">About</a></li><li>
-    
-      </li><li class="cell"><a class="next" href="/atom.xml">Subscribe</a></li><li>
-    
-    </li></ul>
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeywBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我的学习笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-  <div class="widget weibo">
-<iframe width="100%" height="100" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=110&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=0&isWeibo=0&isFans=0&uid=&verifier=78e1ee4d&colors=ffffff,ffffff,999,000,ecfbfd&dpc=1"></iframe>
-</div>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
 
   
 
   
-
-    	<footer id="footer" class="inner"><div class="copyright">
   
-  &copy; 2019 Leeyw
   
-</div>
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/Hexo-deploy-fun/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
 
-</footer>
-    </aside>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">easy_Hexo</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T13:01:51+08:00">
+                2019-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
     
     
-    <div id="hidden-navigationBar" class="navigationBar">
-      <a href="/">LeeywBlog</a>
-    </div>
-    <div id="main-col" class="alignright">
-    <div id="wrapper">
-      
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src>
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
-      
-      
-  
-    <h1 class="title">easy_Hexo</h1>
-  
+    <div class="post-body" itemprop="articleBody">
 
-      <time datetime="2019-03-07T05:01:51.000Z"><a href="/2019/03/07/Hexo-deploy-fun/">2019-03-07</a></time>
       
-  </header>
-    <div class="entry">
+      
+
       
         <h3 id="Hexo在github上的部署方法"><a href="#Hexo在github上的部署方法" class="headerlink" title="Hexo在github上的部署方法"></a><em>Hexo在github上的部署方法</em></h3><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h3 id="1-GitHub配置"><a href="#1-GitHub配置" class="headerlink" title="1. GitHub配置"></a>1. GitHub配置</h3><h3 id="2-Hexo配置"><a href="#2-Hexo配置" class="headerlink" title="2. Hexo配置"></a>2. Hexo配置</h3><h3 id="3-初始配置成功后再次创建博客"><a href="#3-初始配置成功后再次创建博客" class="headerlink" title="3. 初始配置成功后再次创建博客"></a>3. 初始配置成功后再次创建博客</h3><h3 id="4-注意"><a href="#4-注意" class="headerlink" title="4. 注意"></a>4. 注意</h3><h3 id="5-主题设置"><a href="#5-主题设置" class="headerlink" title="5. 主题设置"></a>5. 主题设置</h3><h2 id="1-Github配置"><a href="#1-Github配置" class="headerlink" title="1. Github配置"></a>1. Github配置</h2><h3 id="创建一个名字为：你的github用户名-github-io-的仓库"><a href="#创建一个名字为：你的github用户名-github-io-的仓库" class="headerlink" title="创建一个名字为：你的github用户名.github.io 的仓库"></a>创建一个名字为：<em>你的github用户名.github.io</em> 的仓库</h3><h3 id="若不会创建github-详见我如何创建github博客"><a href="#若不会创建github-详见我如何创建github博客" class="headerlink" title="若不会创建github 详见我如何创建github博客"></a>若不会创建github 详见我如何创建github博客</h3><h2 id="2-Hexo配置-1"><a href="#2-Hexo配置-1" class="headerlink" title="2. Hexo配置"></a>2. Hexo配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. mkdir repo _(repo可以是任意名字)_</span><br><span class="line">2. cd 到repo</span><br><span class="line">3. npm install -g hexo-cli _安装 Hexo_</span><br><span class="line">4. hexo init myBlog _初始化一个博客myBlog为你的项目名称，（可以为任意名称）_</span><br><span class="line">5. cd myBlog</span><br><span class="line">6. npm i</span><br><span class="line">7. hexo new 大吉大利，今天开博  _new出你的博客，这个时候你会看到一个md文件_</span><br><span class="line">8. start source/_post/开博大吉.md *edit你的博客，语法详见我第四篇博客*</span><br><span class="line">9. start _config.yml，编辑网站配置</span><br><span class="line">*    把第 6 行的 title 改成你想要的名字</span><br><span class="line">+    把第 9 行的 author 改成你的大名</span><br><span class="line">-    把最后一行的 type 改成 type: git</span><br><span class="line">*    在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，</span><br><span class="line">+    仓库地址以 git@github.com: 开头你知道吧？不知道？不知道的话现在你知道了）</span><br><span class="line">-    第 4 步的 repo: 后面有个空格，不要眼瞎。</span><br><span class="line">10. npm install hexo-deployer-git --save _安装 git 部署插件_</span><br><span class="line">11. hexo deploy _部署_</span><br></pre></td></tr></table></figure>
 <h3 id="12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接"><a href="#12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接" class="headerlink" title="12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接"></a>12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接</h3><h3 id="13-访问这个连接，访问成功！"><a href="#13-访问这个连接，访问成功！" class="headerlink" title="13. 访问这个连接，访问成功！"></a>13. 访问这个连接，访问成功！</h3><hr>
 <h2 id="3-初始配置成功后再次创建博客-1"><a href="#3-初始配置成功后再次创建博客-1" class="headerlink" title="3.初始配置成功后再次创建博客"></a>3.初始配置成功后再次创建博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 1. hexo new 第二篇博客</span><br><span class="line">### 2. start 第二篇博客路径(相对绝对都ok)</span><br><span class="line">### 3. hexo generate  _生成_</span><br><span class="line">### 4. hexo deploy    _部署_</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="4-注意-1"><a href="#4-注意-1" class="headerlink" title="4. 注意"></a>4. 注意</h2><h1 id="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><a href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】" class="headerlink" title="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】"></a>注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</h1><h1 id="如何创建一个新仓库详见我-如何玩转github仓库-博客"><a href="#如何创建一个新仓库详见我-如何玩转github仓库-博客" class="headerlink" title="如何创建一个新仓库详见我[如何玩转github仓库]博客"></a>如何创建一个新仓库详见我[如何玩转github仓库]博客</h1><h2 id="5-主题设置-1"><a href="#5-主题设置-1" class="headerlink" title="5.主题设置"></a>5.主题设置</h2>
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span>Posted by <a style="color:#9f9f9f;" href><strong></strong></a> - 2019-03-07</span><br>
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>LeeywBlog</strong></a></span>
-</p>
-       	 
+<h2 id="4-注意-1"><a href="#4-注意-1" class="headerlink" title="4. 注意"></a>4. 注意</h2><h1 id="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><a href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】" class="headerlink" title="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】"></a>注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</h1><h1 id="如何创建一个新仓库详见我-如何玩转github仓库-博客"><a href="#如何创建一个新仓库详见我-如何玩转github仓库-博客" class="headerlink" title="如何创建一个新仓库详见我[如何玩转github仓库]博客"></a>如何创建一个新仓库详见我[如何玩转github仓库]博客</h1><h2 id="5-主题设置-1"><a href="#5-主题设置-1" class="headerlink" title="5.主题设置"></a>5.主题设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="line">随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https://github.com/iissnan/hexo-theme-next</span><br><span class="line">复制它的 SSH 地址或 HTTPS 地址，假设地址为 git@github.com:iissnan/hexo-theme-next.git</span><br><span class="line">cd themes</span><br><span class="line">git clone git@github.com:iissnan/hexo-theme-next.git</span><br><span class="line">cd ..</span><br><span class="line">将 _config.yml 的第 75 行改为 theme: hexo-theme-next，保存</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line">等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 1 步，重选一个主题。</span><br></pre></td></tr></table></figure>
       
     </div>
-    <footer>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
       
-	 
-     		  
-       		
-     		  
-       	 
+
       
-      <div class="clearfix"></div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/我开博啦/" rel="next" title="我开博啦~">
+                <i class="fa fa-chevron-left"></i> 我开博啦~
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/07/Hexo-grammar/" rel="prev" title="easy_MakeDown">
+                easy_MakeDown <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
   </div>
-</article>
+  
+  
+  
+  </article>
 
 
-</div>
+
+    <div class="post-spread">
+      
     </div>
-    <div class="tabbar" onload="divideTabBar()">
-	
-      <div class="tabbaritem"><a class="next" href="/">Home</a></div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
     
-      <div class="tabbaritem"><a class="next" href="/archives/">Archives</a></div>
-    
-      <div class="tabbaritem"><a class="next" href="/about/">About</a></div>
-    
-      <div class="tabbaritem"><a class="next" href="/atom.xml">Subscribe</a></div>
-    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Leeyw</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo在github上的部署方法"><span class="nav-number">1.</span> <span class="nav-text">Hexo在github上的部署方法</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number"></span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-GitHub配置"><span class="nav-number">1.</span> <span class="nav-text">1. GitHub配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Hexo配置"><span class="nav-number">2.</span> <span class="nav-text">2. Hexo配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-初始配置成功后再次创建博客"><span class="nav-number">3.</span> <span class="nav-text">3. 初始配置成功后再次创建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-注意"><span class="nav-number">4.</span> <span class="nav-text">4. 注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-主题设置"><span class="nav-number">5.</span> <span class="nav-text">5. 主题设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Github配置"><span class="nav-number"></span> <span class="nav-text">1. Github配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个名字为：你的github用户名-github-io-的仓库"><span class="nav-number">1.</span> <span class="nav-text">创建一个名字为：你的github用户名.github.io 的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#若不会创建github-详见我如何创建github博客"><span class="nav-number">2.</span> <span class="nav-text">若不会创建github 详见我如何创建github博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Hexo配置-1"><span class="nav-number"></span> <span class="nav-text">2. Hexo配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接"><span class="nav-number">1.</span> <span class="nav-text">12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-访问这个连接，访问成功！"><span class="nav-number">2.</span> <span class="nav-text">13. 访问这个连接，访问成功！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-初始配置成功后再次创建博客-1"><span class="nav-number"></span> <span class="nav-text">3.初始配置成功后再次创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-注意-1"><span class="nav-number"></span> <span class="nav-text">4. 注意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><span class="nav-number"></span> <span class="nav-text">注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何创建一个新仓库详见我-如何玩转github仓库-博客"><span class="nav-number"></span> <span class="nav-text">如何创建一个新仓库详见我[如何玩转github仓库]博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-主题设置-1"><span class="nav-number"></span> <span class="nav-text">5.主题设置</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leeyw</span>
+
+  
 </div>
 
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
