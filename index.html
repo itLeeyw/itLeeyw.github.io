@@ -88,11 +88,76 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="1-安装Git-Bash"><a href="#1-安装Git-Bash" class="headerlink" title="1. 安装Git Bash"></a>1. 安装Git Bash</h2><h3 id="下载链接提取码：uxb0"><a href="#下载链接提取码：uxb0" class="headerlink" title="下载链接提取码：uxb0"></a><a href="https://pan.baidu.com/s/1op0QmiOBZD-sYduV2B9yNw" target="_blank" rel="noopener">下载链接</a>提取码：uxb0</h3><h3 id="2-下面就随便配置一下界面字体什么"><a href="#2-下面就随便配置一下界面字体什么" class="headerlink" title="2.下面就随便配置一下界面字体什么"></a>2.下面就随便<a href="http://www.baidu.com" target="_blank" rel="noopener">配置</a>一下界面字体什么</h3><hr>
+<h3 id="3-在命令行运行下面这五句话"><a href="#3-在命令行运行下面这五句话" class="headerlink" title="3. 在命令行运行下面这五句话"></a>3. 在命令行运行下面这五句话</h3><p>‘’’flow<br>git config –global user.name xxxxxx(把xxxxxx替换成你的英文名字随便什么都行)<br>git config –global user.email xxxxxx(把xxxxxx替换成你的邮箱跟github一致或者不一致也行)<br>git config –global push.default simple                                             # 本来我写的是 matching，不过想了想可能 simple 更好<br>git config –global core.quotepath false                                           #防止文件名变成数字<br>git config –global core.editor “vim”                                                   # 使用vim编辑提交信息</p>
+<p>‘’’</p>
+<h3 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h3><h4 id="1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛"><a href="#1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛" class="headerlink" title="1. 进入https://github.com/settings/keys (肯定得配置一个🔒和🔑嘛~"></a>1. 进入<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a> (肯定得配置一个🔒和🔑嘛~</h4><h4 id="2-咋在git上面生成一个🔒"><a href="#2-咋在git上面生成一个🔒" class="headerlink" title="2. 咋在git上面生成一个🔒"></a>2. 咋在git上面<strong><em>生成</em></strong>一个🔒</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot; (回车三次)</span><br><span class="line">cat ~/.ssh/id_rsa.pub   （复制key到key）</span><br><span class="line">Add SSH key 配置完成~</span><br></pre></td></tr></table></figure>
+<h3 id="3-Git运行"><a href="#3-Git运行" class="headerlink" title="3. Git运行"></a>3. Git运行</h3><p><code>ssh -T git@github.com</code> (输入yes~)</p>
+<h4 id="出现Permission-denied-publickey-就是失败，Hi-FrankFang-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access-就说明你成功了！"><a href="#出现Permission-denied-publickey-就是失败，Hi-FrankFang-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access-就说明你成功了！" class="headerlink" title="出现Permission denied (publickey).就是失败，Hi FrankFang! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明你成功了！"></a>出现Permission denied (publickey).就是失败，Hi FrankFang! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明你成功了！</h4><h2 id="ok、SSH-key添加好了"><a href="#ok、SSH-key添加好了" class="headerlink" title="ok、SSH key添加好了"></a>ok、SSH key添加好了</h2><figure class="highlight plain"><figcaption><span>key</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">它用来访问你的仓库，all</span><br><span class="line">如果你新买了一台电脑，就再用以上方法Add SSH key</span><br><span class="line">如果你删除了key，就重新生成一个key，替换之前的key</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="二、使用git"><a href="#二、使用git" class="headerlink" title="二、使用git"></a>二、使用git</h1><pre><code>+ 三种方式
+   1. 只在本地使用
+   2. 将本地文件上传到gayhub
+   3. 将gayhub上的仓库下载或者clon
+   4. gayhub?思想逐渐变gay
+</code></pre><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><pre><code>1. 1 创建一个项目目录:mkdir git-demo-1
+1. 2 进入目录 cd git-demo-1
+1. 3 git init ，初始化，这句命令会在git-demo-1中创建一个.git目录
+1. 4 ls -la 你就会看到.git目录，他就是一个仓库
+1. 5 在git-demo-1目录中添加任意文件
+    &apos;&apos;&apos;
+    1. touch index.html
+    2. mkdir css
+    3. touch css/style.css
+    &apos;&apos;&apos;
+1. 6 运行git status -sb 可以看到文件前面有 ***??*** 号
+   + ***这个问号的意思是，git不知道你要怎么对待这些变动***
+1. 7 使用git add 将“变动”添加到【暂存区】
+   + 你可以一个个的add
+    &apos; 1. git add index.html &apos;
+    &apos; 2. git add css/style.css&apos;
+   + 你也可以一次性add
+    &apos; 1. git add . &apos;
+1. 8 再次运行 git status -sb 可以看到 ***??*** 变成了 ***A***
+    + A的意思是添加，告诉git这些文件我都要添加至仓库
+1. 9 使用git commit -m &quot;信息（任意）&quot; 将 ***add*** 内容【正式提交】到本地仓库 并添加注释信息，方便以后查询
+    + 一个个commit
+       1. git commit index.html -m &quot;添加index.html&quot;
+       2. git commit css/style.css -m &quot;添加css/style.css&quot;
+    + 一次性commit
+       1. git commit . -m &quot;添加多个文件&quot;
+
+1. 10 再再次运行git status -sb ，发现没有文件变动，因为文件的变动已经记录至长裤
+1. 11 使用 ***git log*** 查看历史变动
+1. 10 若再次变动文件，保存变动后执行
+    &apos;git add 变动文件&apos;
+    &apos;git commit -m &quot;更新变动文件&quot;&apos;
+1.11 ***git status -sb 查看文件变动信息***
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><pre><code>1. git init，初始化本地仓库 .git
+2. git status -sb，显示当前所有文件的状态
+3. git add 文件路径，用来将变动加到暂存区
+4. git commit -m &quot;信息&quot;，用来正式提交变动，提交至 .git 仓库
+5. 如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m &apos;xxx&apos; 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。
+6. git log 查看变更历史
+</code></pre><hr>
+<h1 id="三、上传到GitHub"><a href="#三、上传到GitHub" class="headerlink" title="三、上传到GitHub"></a>三、上传到GitHub</h1><pre><code>1. 创建一个新的仓库
+2. 下为图操
+![点击SSH](https://video.jirengu.com/FqewHjBnXJH9_TAeV_JaC3gGVFsT &quot;ssh&quot;)
+![简单介绍](https://video.jirengu.com/Fta476rO6oPJIgxbIec8vINTZV3E)
+## ***看图，点击 SSH 按钮，点击 SSH 按钮，点击 SSH 按钮，我想你现在肯定不会忘了点击 SSH 按钮了吧~~~~如果不点击这个按钮，你就会使用默认的 HTTPS 地址。但是千万不要使用 HTTPS 地址，因为 HTTPS 地址使用起来特别麻烦，每次都要输入密码，而 SSH 不用输入用户名密码。为什么 SSH 不用密码呢，因为你已经上传了 SSH public key。还记得吗？***
+3. 我们已经有了本地仓库 于是
+    1. 找到图中的「…or push an existing repository from the command line」这一行，你会看到 git remote add origin https://github.com/xxxxxxxxxx/git-demo-1.git， 如果你发现这个地址是 https 开头的，那你就做错了，还记得吗，我们要使用 SSH 地址，GitHub 的 SSH 地址是以 git@github.com 开头的。
+    2. 再次「点击 SSH按钮」，点击之后，整个世界就会变得美好起来
+    3. 得到新的命令 git remote add origin git@github.com:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/git-demo-1.git，复制并运行它
+    4. 复制第二行 git push -u origin master，运行它
+    5. 刷新当前页面，你的仓库就上传到 GitHub 了！
+</code></pre><h2 id="如何上传更新"><a href="#如何上传更新" class="headerlink" title="如何上传更新"></a>如何上传更新</h2><p>‘’’<br>git add 文件路径<br>git commit -m “信息”<br>git pull （如果其他人提前更新仓库，你得先下载（更新）仓库）<br>git push<br>‘’’</p>
+<p>###例子<br>‘’’<br>cd git-demo-1<br>touch index2.html<br>git add index2.html<br>git commit -m “新建 index2.html”<br>git pull<br>git push<br>‘’’</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/easy-github/" data-id="cjsyf4h0f00023ocyci948xi7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/07/easy-github/" data-id="cjsyhq374000244cyfa9enc7a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -124,12 +189,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="写作介绍"><a href="#写作介绍" class="headerlink" title="写作介绍"></a>写作介绍</h1><h2 id="1，字体介绍"><a href="#1，字体介绍" class="headerlink" title="1，字体介绍"></a>1，字体介绍</h2><p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><strong><em>这是加粗斜体</em></strong><br><del>这是删除线</del></p>
-<h2 id="2，分级标题"><a href="#2，分级标题" class="headerlink" title="2，分级标题"></a>2，分级标题</h2><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h2 id="3，超链接"><a href="#3，超链接" class="headerlink" title="3，超链接"></a>3，超链接</h2><p>写法：</p>
+        <h1 id="写作介绍"><a href="#写作介绍" class="headerlink" title="写作介绍"></a>写作介绍</h1><h2 id="1-字体介绍"><a href="#1-字体介绍" class="headerlink" title="1. 字体介绍"></a>1. 字体介绍</h2><p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><strong><em>这是加粗斜体</em></strong><br><del>这是删除线</del></p>
+<h2 id="2-分级标题"><a href="#2-分级标题" class="headerlink" title="2. 分级标题"></a>2. 分级标题</h2><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h2 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h2><p>写法：</p>
 <p>我的博客地址<a href="https://itleeyw.github.io/" target="_blank" rel="noopener">https://itleeyw.github.io/</a></p>
 <p><a href="http://www.iqiyi.com/a_19rrhb3xvl.html?vfm=2008_aldbd" target="_blank" rel="noopener">海贼王</a></p>
 <p><a href="https://www.bilibili.com/" target="_blank" rel="noopener">小破站</a></p>
-<h2 id="4-列表"><a href="#4-列表" class="headerlink" title="4,列表"></a>4,列表</h2><ul>
+<h2 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h2><ul>
 <li><p>列表嵌套</p>
 <ul>
 <li><p>无序列表：<br> 写法：</p>
@@ -143,14 +208,18 @@
 <li>无序列表项3</li>
 </ul>
 </li>
-<li><p>有序列表：<br> 写法：<br> 1.有序列表项1<br> 2.有序列表项2<br> 3.有序列表项3</p>
+<li><p>有序列表：<br> 写法：</p>
+<ol>
+<li>有序列表项1</li>
+<li>有序列表项2</li>
+<li>有序列表项3</li>
+</ol>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="5，插入图片"><a href="#5，插入图片" class="headerlink" title="5，插入图片"></a>5，插入图片</h2><p>###<img src="图片地址" alt="图片alt" title="&#39;图片title&#39;">,图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</p>
-<p><img src="http://img4q.duitang.com/uploads/item/201504/30/20150430132315_eTKQm.thumb.700_0.jpeg" alt="路飞" title="QAQ"></p>
-<h2 id="6，表格"><a href="#6，表格" class="headerlink" title="6，表格"></a>6，表格</h2><table>
+<h2 id="5-插入图片"><a href="#5-插入图片" class="headerlink" title="5. 插入图片"></a>5. 插入图片</h2><h4 id="gt-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加"><a href="#gt-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加" class="headerlink" title="&gt; ,图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加"></a>&gt; <img src="图片地址" alt="图片alt" title="&#39;图片title&#39;">,图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</h4><p><img src="http://img4q.duitang.com/uploads/item/201504/30/20150430132315_eTKQm.thumb.700_0.jpeg" alt="路飞" title="QAQ"></p>
+<h2 id="6-表格"><a href="#6-表格" class="headerlink" title="6. 表格"></a>6. 表格</h2><table>
 <thead>
 <tr>
 <th>表头1</th>
@@ -180,7 +249,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="7，引用"><a href="#7，引用" class="headerlink" title="7，引用"></a>7，引用</h2><blockquote>
+<h2 id="7-引用"><a href="#7-引用" class="headerlink" title="7. 引用"></a>7. 引用</h2><blockquote>
 <p>这是引用的内容（第一层）</p>
 <blockquote>
 <p>这是引用引用的内容(第二层)</p>
@@ -198,22 +267,23 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="8，代码"><a href="#8，代码" class="headerlink" title="8，代码"></a>8，代码</h2><ul>
+<h2 id="8-代码"><a href="#8-代码" class="headerlink" title="8. 代码"></a>8. 代码</h2><ul>
 <li>语法<ul>
-<li>单个代码<br>‘代码内容’</li>
-<li>代码块<br>‘’’<br>代码1<br>代码2<br>代码3<br>‘’’  </li>
+<li>单个代码<br><code>代码内容</code></li>
+<li>代码块<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码1</span><br><span class="line">代码2</span><br><span class="line">代码3</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="9，流程图"><a href="#9，流程图" class="headerlink" title="9，流程图"></a>9，流程图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
-<h2 id="10，字体颜色"><a href="#10，字体颜色" class="headerlink" title="10，字体颜色"></a>10，字体颜色</h2><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color="#0099ff" size="7" face="黑体">color=#0099ff size=72 face=”黑体”</font><br><font color="#00ffff" size="72">color=#00ffff</font><br><font color="gray" size="72">color=gray</font>
+<h2 id="9-流程图-无法显示什么鬼"><a href="#9-流程图-无法显示什么鬼" class="headerlink" title="9. 流程图 (无法显示什么鬼~)"></a>9. 流程图 (无法显示什么鬼~)</h2><p><code>`</code>flow<br>st=&gt;start: 开始<br>op=&gt;operation: My Operation<br>cond=&gt;condition: Yes or No?<br>e=&gt;end<br>st-&gt;op-&gt;cond<br>cond(yes)-&gt;e<br>cond(no)-&gt;op<br>‘’’</p>
+<h2 id="10-字体颜色"><a href="#10-字体颜色" class="headerlink" title="10. 字体颜色"></a>10. 字体颜色</h2><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color="#0099ff" size="7" face="黑体">color=#0099ff size=72 face=”黑体”</font><br><font color="#00ffff" size="72">color=#00ffff</font><br><font color="gray" size="72">color=gray</font>
 
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/Hexo-grammar/" data-id="cjsyf4h0d00013ocyfcn69jhj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/07/Hexo-grammar/" data-id="cjsyhq36z000144cy1k7ip8m9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -245,32 +315,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hexo在github上的部署方法"><a href="#Hexo在github上的部署方法" class="headerlink" title="Hexo在github上的部署方法"></a>Hexo在github上的部署方法</h1><h2 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h2><h3 id="创建一个名字为：你的github用户名-github-io-的仓库"><a href="#创建一个名字为：你的github用户名-github-io-的仓库" class="headerlink" title="创建一个名字为：你的github用户名.github.io 的仓库"></a>创建一个名字为：<em>你的github用户名.github.io</em> 的仓库</h3><h3 id="若不会创建github-详见我如何创建github博客"><a href="#若不会创建github-详见我如何创建github博客" class="headerlink" title="若不会创建github 详见我如何创建github博客"></a>若不会创建github 详见我如何创建github博客</h3><h2 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h2><p>‘’’</p>
-<h3 id="1-mkdir-repo-repo可以是任意名字"><a href="#1-mkdir-repo-repo可以是任意名字" class="headerlink" title="1.mkdir repo (repo可以是任意名字)"></a>1.mkdir repo <em>(repo可以是任意名字)</em></h3><h3 id="2-cd-到repo"><a href="#2-cd-到repo" class="headerlink" title="2.cd 到repo"></a>2.cd 到repo</h3><h3 id="3-npm-install-g-hexo-cli-安装-Hexo"><a href="#3-npm-install-g-hexo-cli-安装-Hexo" class="headerlink" title="3.npm install -g hexo-cli 安装 Hexo"></a>3.npm install -g hexo-cli <em>安装 Hexo</em></h3><h3 id="4-hexo-init-myBlog-初始化一个博客myBlog为你的项目名称，（可以为任意名称）"><a href="#4-hexo-init-myBlog-初始化一个博客myBlog为你的项目名称，（可以为任意名称）" class="headerlink" title="4.hexo init myBlog 初始化一个博客myBlog为你的项目名称，（可以为任意名称）"></a>4.hexo init myBlog <em>初始化一个博客myBlog为你的项目名称，（可以为任意名称）</em></h3><h3 id="5-cd-myBlog"><a href="#5-cd-myBlog" class="headerlink" title="5.cd myBlog"></a>5.cd myBlog</h3><h3 id="6-npm-i"><a href="#6-npm-i" class="headerlink" title="6.npm i"></a>6.npm i</h3><h3 id="7-hexo-new-大吉大利，今天开博-new出你的博客，这个时候你会看到一个md文件"><a href="#7-hexo-new-大吉大利，今天开博-new出你的博客，这个时候你会看到一个md文件" class="headerlink" title="7.hexo new 大吉大利，今天开博  new出你的博客，这个时候你会看到一个md文件"></a>7.hexo new 大吉大利，今天开博  <em>new出你的博客，这个时候你会看到一个md文件</em></h3><h3 id="8-start-source-post-开博大吉-md-edit你的博客，语法详见我第四篇博客"><a href="#8-start-source-post-开博大吉-md-edit你的博客，语法详见我第四篇博客" class="headerlink" title="8.start source/_post/开博大吉.md edit你的博客，语法详见我第四篇博客"></a>8.start source/_post/开博大吉.md <em>edit你的博客，语法详见我第四篇博客</em></h3><h3 id="9-start-config-yml，编辑网站配置"><a href="#9-start-config-yml，编辑网站配置" class="headerlink" title="9.start _config.yml，编辑网站配置"></a>9.start _config.yml，编辑网站配置</h3><ul>
-<li>把第 6 行的 title 改成你想要的名字</li>
-</ul>
-<ul>
-<li>把第 9 行的 author 改成你的大名</li>
-</ul>
-<ul>
-<li>把最后一行的 type 改成 type: git</li>
-</ul>
-<ul>
-<li>在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，</li>
-</ul>
-<ul>
-<li>仓库地址以 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 开头你知道吧？不知道？不知道的话现在你知道了）</li>
-</ul>
-<ul>
-<li>第 4 步的 repo: 后面有个空格，不要眼瞎。<h3 id="10-npm-install-hexo-deployer-git-–save-安装-git-部署插件"><a href="#10-npm-install-hexo-deployer-git-–save-安装-git-部署插件" class="headerlink" title="10.npm install hexo-deployer-git –save 安装 git 部署插件"></a>10.npm install hexo-deployer-git –save <em>安装 git 部署插件</em></h3><h3 id="11-hexo-deploy-部署"><a href="#11-hexo-deploy-部署" class="headerlink" title="11.hexo deploy _部署_"></a>11.hexo deploy _部署_</h3>‘’’<h3 id="12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接"><a href="#12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接" class="headerlink" title="12.进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接"></a>12.进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接</h3><h3 id="13-访问这个连接，访问成功！"><a href="#13-访问这个连接，访问成功！" class="headerlink" title="13.访问这个连接，访问成功！"></a>13.访问这个连接，访问成功！</h3></li>
-</ul>
+        <h1 id="Hexo在github上的部署方法"><a href="#Hexo在github上的部署方法" class="headerlink" title="Hexo在github上的部署方法"></a>Hexo在github上的部署方法</h1><h2 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h2><h3 id="创建一个名字为：你的github用户名-github-io-的仓库"><a href="#创建一个名字为：你的github用户名-github-io-的仓库" class="headerlink" title="创建一个名字为：你的github用户名.github.io 的仓库"></a>创建一个名字为：<em>你的github用户名.github.io</em> 的仓库</h3><h3 id="若不会创建github-详见我如何创建github博客"><a href="#若不会创建github-详见我如何创建github博客" class="headerlink" title="若不会创建github 详见我如何创建github博客"></a>若不会创建github 详见我如何创建github博客</h3><h2 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. mkdir repo _(repo可以是任意名字)_</span><br><span class="line">2. cd 到repo</span><br><span class="line">3. npm install -g hexo-cli _安装 Hexo_</span><br><span class="line">4. hexo init myBlog _初始化一个博客myBlog为你的项目名称，（可以为任意名称）_</span><br><span class="line">5. cd myBlog</span><br><span class="line">6. npm i</span><br><span class="line">7. hexo new 大吉大利，今天开博  _new出你的博客，这个时候你会看到一个md文件_</span><br><span class="line">8. start source/_post/开博大吉.md *edit你的博客，语法详见我第四篇博客*</span><br><span class="line">9. start _config.yml，编辑网站配置</span><br><span class="line">*    把第 6 行的 title 改成你想要的名字</span><br><span class="line">+    把第 9 行的 author 改成你的大名</span><br><span class="line">-    把最后一行的 type 改成 type: git</span><br><span class="line">*    在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，</span><br><span class="line">+    仓库地址以 git@github.com: 开头你知道吧？不知道？不知道的话现在你知道了）</span><br><span class="line">-    第 4 步的 repo: 后面有个空格，不要眼瞎。</span><br><span class="line">10. npm install hexo-deployer-git --save _安装 git 部署插件_</span><br><span class="line">11. hexo deploy _部署_</span><br></pre></td></tr></table></figure>
+<h3 id="12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接"><a href="#12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接" class="headerlink" title="12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接"></a>12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接</h3><h3 id="13-访问这个连接，访问成功！"><a href="#13-访问这个连接，访问成功！" class="headerlink" title="13. 访问这个连接，访问成功！"></a>13. 访问这个连接，访问成功！</h3><hr>
+<h2 id="初始配置成功后再次创建博客"><a href="#初始配置成功后再次创建博客" class="headerlink" title="初始配置成功后再次创建博客"></a>初始配置成功后再次创建博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 1. hexo new 第二篇博客</span><br><span class="line">### 2. start 第二篇博客路径(相对绝对都ok)</span><br><span class="line">### 3. hexo generate  _生成_</span><br><span class="line">### 4. hexo deploy    _部署_</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="初始配置成功后再次创建博客"><a href="#初始配置成功后再次创建博客" class="headerlink" title="初始配置成功后再次创建博客"></a>初始配置成功后再次创建博客</h2><p>‘’’</p>
-<h3 id="1-hexo-new-第二篇博客"><a href="#1-hexo-new-第二篇博客" class="headerlink" title="1.hexo new 第二篇博客"></a>1.hexo new 第二篇博客</h3><h3 id="2-start-第二篇博客路径-相对绝对都ok"><a href="#2-start-第二篇博客路径-相对绝对都ok" class="headerlink" title="2.start 第二篇博客路径(相对绝对都ok)"></a>2.start 第二篇博客路径(相对绝对都ok)</h3><h3 id="3-hexo-generate-生成"><a href="#3-hexo-generate-生成" class="headerlink" title="3.hexo generate  _生成_"></a>3.hexo generate  _生成_</h3><h3 id="4-hexo-deploy-部署"><a href="#4-hexo-deploy-部署" class="headerlink" title="4.hexo deploy    _部署_"></a>4.hexo deploy    _部署_</h3><h2 id="‘’’"><a href="#‘’’" class="headerlink" title="‘’’"></a>‘’’</h2><h1 id="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><a href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】" class="headerlink" title="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】"></a>注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</h1><h1 id="如何创建一个新仓库详见我-如何玩转github仓库-博客"><a href="#如何创建一个新仓库详见我-如何玩转github仓库-博客" class="headerlink" title="如何创建一个新仓库详见我[如何玩转github仓库]博客"></a>如何创建一个新仓库详见我[如何玩转github仓库]博客</h1>
+<h1 id="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><a href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】" class="headerlink" title="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】"></a>注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</h1><h1 id="如何创建一个新仓库详见我-如何玩转github仓库-博客"><a href="#如何创建一个新仓库详见我-如何玩转github仓库-博客" class="headerlink" title="如何创建一个新仓库详见我[如何玩转github仓库]博客"></a>如何创建一个新仓库详见我[如何玩转github仓库]博客</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/Hexo-deploy-fun/" data-id="cjsyf4h0800003ocyrjgmkrqi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/07/Hexo-deploy-fun/" data-id="cjsyhq36u000044cyjrxlpx5p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/我开博啦/" data-id="cjsyf4h0j00043ocypfxlsfu1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/07/我开博啦/" data-id="cjsyhq377000444cyl8lf9403" class="article-share-link">Share</a>
       
       
     </footer>
@@ -352,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/hello-world/" data-id="cjsyf4h0h00033ocyz2c3a57p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/07/hello-world/" data-id="cjsyhq375000344cyx8qxavky" class="article-share-link">Share</a>
       
       
     </footer>
