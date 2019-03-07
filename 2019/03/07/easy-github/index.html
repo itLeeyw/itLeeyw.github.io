@@ -1,103 +1,111 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <title>easy-github | LeeywBlog</title>
+  <meta name="author" content="Leeyw">
+  
+  <meta name="description" content="本篇博客主要为 Git与GitHub的交互操作目录一、准备工作1. 安装Git Bash2. 配置Git Bash3. 一定运行的命令4. 配置GitHub4. 1 进入Keys配置页4. 2 生成🔒5. 使用Git生成一个本地Key二、使用Git+ 三种方式
+1. 初始化并创建仓库2. bula">
+  
+  
+  <meta property="og:title" content="easy-github">
+  <meta property="og:site_name" content="LeeywBlog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <title>easy-github | LeeywBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、准备工作1. 安装Git Bash下载链接提取码：uxb02.下面就随便配置一下界面字体什么 3. 在命令行运行下面这五句话‘’’flowgit config –global user.name xxxxxx(把xxxxxx替换成你的英文名字随便什么都行)git config –global user.email xxxxxx(把xxxxxx替换成你的邮箱跟github一致或者不一致也行)gi">
-<meta property="og:type" content="article">
-<meta property="og:title" content="easy-github">
-<meta property="og:url" content="http://yoursite.com/2019/03/07/easy-github/index.html">
-<meta property="og:site_name" content="LeeywBlog">
-<meta property="og:description" content="一、准备工作1. 安装Git Bash下载链接提取码：uxb02.下面就随便配置一下界面字体什么 3. 在命令行运行下面这五句话‘’’flowgit config –global user.name xxxxxx(把xxxxxx替换成你的英文名字随便什么都行)git config –global user.email xxxxxx(把xxxxxx替换成你的邮箱跟github一致或者不一致也行)gi">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://video.jirengu.com/FkftOFnWOoe3W6SKetIjskFZun1p">
-<meta property="og:image" content="https://video.jirengu.com/Fh5OogA65vQk3_r78zxMNhb7pWYW">
-<meta property="og:updated_time" content="2019-03-07T10:36:12.123Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="easy-github">
-<meta name="twitter:description" content="一、准备工作1. 安装Git Bash下载链接提取码：uxb02.下面就随便配置一下界面字体什么 3. 在命令行运行下面这五句话‘’’flowgit config –global user.name xxxxxx(把xxxxxx替换成你的英文名字随便什么都行)git config –global user.email xxxxxx(把xxxxxx替换成你的邮箱跟github一致或者不一致也行)gi">
-<meta name="twitter:image" content="https://video.jirengu.com/FkftOFnWOoe3W6SKetIjskFZun1p">
+    <meta property="og:image" content>
   
-    <link rel="alternate" href="/atom.xml" title="LeeywBlog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+   <link rel="apple-touch-icon" href="/icon.png">
+   <link rel="shortcut icon" href="/favicon.png">
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="LeeywBlog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 </head>
 </html>
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">LeeywBlog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">我的学习笔记</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">LeeywBlog</a>
       </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-easy-github" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/07/easy-github/" class="article-date">
-  <time datetime="2019-03-07T05:39:25.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
+    	
+  <nav class="widget" id="menu">
+	<ul>
     
-  </div>
-  <div class="article-inner">
+      <li class="cell"><a class="next" href="/">Home</a></li><li>
     
+      </li><li class="cell"><a class="next" href="/archives/">Archives</a></li><li>
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      easy-github
-    </h1>
+      </li><li class="cell"><a class="next" href="/about/">About</a></li><li>
+    
+      </li><li class="cell"><a class="next" href="/atom.xml">Subscribe</a></li><li>
+    
+    </li></ul>
+</nav>
+
+  <div class="widget weibo">
+<iframe width="100%" height="100" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=110&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=0&isWeibo=0&isFans=0&uid=&verifier=78e1ee4d&colors=ffffff,ffffff,999,000,ecfbfd&dpc=1"></iframe>
+</div>
+
   
 
-      </header>
+  
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2019 Leeyw
+  
+</div>
+
+
+
+</footer>
+    </aside>
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">LeeywBlog</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
       
-        <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="1-安装Git-Bash"><a href="#1-安装Git-Bash" class="headerlink" title="1. 安装Git Bash"></a>1. 安装Git Bash</h2><h3 id="下载链接提取码：uxb0"><a href="#下载链接提取码：uxb0" class="headerlink" title="下载链接提取码：uxb0"></a><a href="https://pan.baidu.com/s/1op0QmiOBZD-sYduV2B9yNw" target="_blank" rel="noopener">下载链接</a>提取码：uxb0</h3><h3 id="2-下面就随便配置一下界面字体什么"><a href="#2-下面就随便配置一下界面字体什么" class="headerlink" title="2.下面就随便配置一下界面字体什么"></a>2.下面就随便<a href="http://www.baidu.com" target="_blank" rel="noopener">配置</a>一下界面字体什么</h3><hr>
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src>
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">easy-github</h1>
+  
+
+      <time datetime="2019-03-07T05:39:25.000Z"><a href="/2019/03/07/easy-github/">2019-03-07</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <h3 id="本篇博客主要为-Git与GitHub的交互操作"><a href="#本篇博客主要为-Git与GitHub的交互操作" class="headerlink" title="本篇博客主要为 Git与GitHub的交互操作"></a><em>本篇博客主要为 Git与GitHub的交互操作</em></h3><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="1-安装Git-Bash"><a href="#1-安装Git-Bash" class="headerlink" title="1. 安装Git Bash"></a>1. 安装Git Bash</h3><h3 id="2-配置Git-Bash"><a href="#2-配置Git-Bash" class="headerlink" title="2. 配置Git Bash"></a>2. 配置Git Bash</h3><h3 id="3-一定运行的命令"><a href="#3-一定运行的命令" class="headerlink" title="3. 一定运行的命令"></a>3. 一定运行的命令</h3><h3 id="4-配置GitHub"><a href="#4-配置GitHub" class="headerlink" title="4. 配置GitHub"></a>4. 配置GitHub</h3><h4 id="4-1-进入Keys配置页"><a href="#4-1-进入Keys配置页" class="headerlink" title="4. 1 进入Keys配置页"></a>4. 1 进入Keys配置页</h4><h4 id="4-2-生成🔒"><a href="#4-2-生成🔒" class="headerlink" title="4. 2 生成🔒"></a>4. 2 生成🔒</h4><h3 id="5-使用Git生成一个本地Key"><a href="#5-使用Git生成一个本地Key" class="headerlink" title="5. 使用Git生成一个本地Key"></a>5. 使用Git生成一个本地Key</h3><h2 id="二、使用Git"><a href="#二、使用Git" class="headerlink" title="二、使用Git"></a>二、使用Git</h2><pre><code>+ 三种方式
+</code></pre><h3 id="1-初始化并创建仓库"><a href="#1-初始化并创建仓库" class="headerlink" title="1. 初始化并创建仓库"></a>1. 初始化并创建仓库</h3><h3 id="2-bulabula"><a href="#2-bulabula" class="headerlink" title="2. bulabula~"></a>2. bulabula~</h3><h3 id="3-总结性发言"><a href="#3-总结性发言" class="headerlink" title="3. 总结性发言"></a>3. 总结性发言</h3><h2 id="三、上传到-GitHub"><a href="#三、上传到-GitHub" class="headerlink" title="三、上传到 GitHub"></a>三、上传到 GitHub</h2><h3 id="1-创建新的仓库（二中已完成）"><a href="#1-创建新的仓库（二中已完成）" class="headerlink" title="1. 创建新的仓库（二中已完成）"></a>1. 创建新的仓库（二中已完成）</h3><h3 id="2-图操"><a href="#2-图操" class="headerlink" title="2. 图操"></a>2. 图操</h3><h3 id="3-执行相关命令"><a href="#3-执行相关命令" class="headerlink" title="3. 执行相关命令"></a>3. 执行相关命令</h3><h3 id="3-5-如果二次Edit-file"><a href="#3-5-如果二次Edit-file" class="headerlink" title="3. 5 如果二次Edit file"></a>3. 5 如果二次Edit file</h3><h3 id="4-例子"><a href="#4-例子" class="headerlink" title="4. 例子"></a>4. 例子</h3><h3 id="5-Clone仓库到本地"><a href="#5-Clone仓库到本地" class="headerlink" title="5. Clone仓库到本地"></a>5. Clone仓库到本地</h3><h2 id="4-其他命令"><a href="#4-其他命令" class="headerlink" title="4. 其他命令"></a>4. 其他命令</h2><h1 id="一、准备工作-1"><a href="#一、准备工作-1" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h3 id="1-安装Git-Bash-1"><a href="#1-安装Git-Bash-1" class="headerlink" title="1. 安装Git Bash"></a>1. 安装Git Bash</h3><h3 id="下载链接提取码：uxb0"><a href="#下载链接提取码：uxb0" class="headerlink" title="下载链接提取码：uxb0"></a><a href="https://pan.baidu.com/s/1op0QmiOBZD-sYduV2B9yNw" target="_blank" rel="noopener">下载链接</a>提取码：uxb0</h3><h3 id="2-下面就随便配置一下界面字体什么"><a href="#2-下面就随便配置一下界面字体什么" class="headerlink" title="2.下面就随便配置一下界面字体什么"></a>2.下面就随便<a href="http://www.baidu.com" target="_blank" rel="noopener">配置</a>一下界面字体什么</h3><hr>
 <h3 id="3-在命令行运行下面这五句话"><a href="#3-在命令行运行下面这五句话" class="headerlink" title="3. 在命令行运行下面这五句话"></a>3. 在命令行运行下面这五句话</h3><p>‘’’flow<br>git config –global user.name xxxxxx(把xxxxxx替换成你的英文名字随便什么都行)<br>git config –global user.email xxxxxx(把xxxxxx替换成你的邮箱跟github一致或者不一致也行)<br>git config –global push.default simple                                             # 本来我写的是 matching，不过想了想可能 simple 更好<br>git config –global core.quotepath false                                           #防止文件名变成数字<br>git config –global core.editor “vim”                                                   # 使用vim编辑提交信息</p>
 <p>‘’’</p>
-<h3 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h3><h4 id="1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛"><a href="#1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛" class="headerlink" title="1. 进入https://github.com/settings/keys (肯定得配置一个🔒和🔑嘛~"></a>1. 进入<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a> (肯定得配置一个🔒和🔑嘛~</h4><h4 id="2-咋在git上面生成一个🔒"><a href="#2-咋在git上面生成一个🔒" class="headerlink" title="2. 咋在git上面生成一个🔒"></a>2. 咋在git上面<strong><em>生成</em></strong>一个🔒</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot; (回车三次)</span><br><span class="line">cat ~/.ssh/id_rsa.pub   （复制key到key）</span><br><span class="line">Add SSH key 配置完成~</span><br></pre></td></tr></table></figure>
-<h3 id="3-Git运行"><a href="#3-Git运行" class="headerlink" title="3. Git运行"></a>3. Git运行</h3><p><code>ssh -T git@github.com</code> (输入yes~)</p>
+<h3 id="4-配置GitHub-1"><a href="#4-配置GitHub-1" class="headerlink" title="4. 配置GitHub"></a>4. 配置GitHub</h3><h4 id="1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛"><a href="#1-进入https-github-com-settings-keys-肯定得配置一个🔒和🔑嘛" class="headerlink" title="1. 进入https://github.com/settings/keys (肯定得配置一个🔒和🔑嘛~"></a>1. 进入<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a> (肯定得配置一个🔒和🔑嘛~</h4><h4 id="2-咋在git上面生成一个🔒"><a href="#2-咋在git上面生成一个🔒" class="headerlink" title="2. 咋在git上面生成一个🔒"></a>2. 咋在git上面<strong><em>生成</em></strong>一个🔒</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot; (回车三次)</span><br><span class="line">cat ~/.ssh/id_rsa.pub   （复制key到key）</span><br><span class="line">Add SSH key 配置完成~</span><br></pre></td></tr></table></figure>
+<h3 id="5-Git运行"><a href="#5-Git运行" class="headerlink" title="5. Git运行"></a>5. Git运行</h3><p><code>ssh -T git@github.com</code> (输入yes~)</p>
 <h4 id="出现Permission-denied-publickey-就是失败，Hi-FrankFang-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access-就说明你成功了！"><a href="#出现Permission-denied-publickey-就是失败，Hi-FrankFang-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access-就说明你成功了！" class="headerlink" title="出现Permission denied (publickey).就是失败，Hi FrankFang! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明你成功了！"></a>出现Permission denied (publickey).就是失败，Hi FrankFang! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明你成功了！</h4><h2 id="ok、SSH-key添加好了"><a href="#ok、SSH-key添加好了" class="headerlink" title="ok、SSH key添加好了"></a>ok、SSH key添加好了</h2><figure class="highlight plain"><figcaption><span>key</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">它用来访问你的仓库，all</span><br><span class="line">如果你新买了一台电脑，就再用以上方法Add SSH key</span><br><span class="line">如果你删除了key，就重新生成一个key，替换之前的key</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="二、使用git"><a href="#二、使用git" class="headerlink" title="二、使用git"></a>二、使用git</h1><pre><code>+ 三种方式
@@ -169,114 +177,53 @@
 <li>进入这个多出来的目录</li>
 <li>运行 ls -la 你会看到，远程目录的所有文件都在这里出现了，另外你还看到了 .git 本地仓库。这是你就可以添加文件，git add，然后 git commit 了。</li>
 </ol>
+<h2 id="4-其他命令-1"><a href="#4-其他命令-1" class="headerlink" title="4.其他命令"></a>4.其他命令</h2><ul>
+<li>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxxxxxx.git 将本地仓库与远程仓库关联</li>
+<li>git remote set-url origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxxxx.git 上一步手抖了，可以用这个命令来挽回</li>
+<li>git branch 新建分支</li>
+<li>git merge 合并分支</li>
+<li>git stash 通灵术</li>
+<li>git stash pop 反转通灵术</li>
+<li>git revert 后悔了</li>
+<li>git reset 另一种后悔了</li>
+<li>git diff 查看详细变化</li>
+</ul>
 
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href><strong></strong></a> - 2019-03-07</span><br>
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>LeeywBlog</strong></a></span>
+</p>
+       	 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/07/easy-github/" data-id="cjsyhxctp000278cyguindnkb" class="article-share-link">Share</a>
+    <footer>
       
+	 
+     		  
+       		
+     		  
+       	 
       
+      <div class="clearfix"></div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2019/03/07/Hexo-grammar/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexo_grammar</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+</div>
     </div>
-  </div>
-
-
-  
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">Home</a></div>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/07/easy-github/">easy-github</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/07/Hexo-grammar/">Hexo_grammar</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/07/Hexo-deploy-fun/">Hexo_deploy_fun</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/07/我开博啦/">我开博啦~</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/07/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Leeyw<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+      <div class="tabbaritem"><a class="next" href="/archives/">Archives</a></div>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
+      <div class="tabbaritem"><a class="next" href="/about/">About</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/atom.xml">Subscribe</a></div>
+    
+</div>
 
 
   </div>
