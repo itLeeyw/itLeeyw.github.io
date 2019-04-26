@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="easy-js#easy-javascript  code 目录1. 第一个导航页面案例2. 监听事件3. js的七大类型end. tips1. 第一个导航页面案例 需要用到的一些函数1. console.log() 打印 排错校验神器 2. while 循环 没什么好讲的 3. 字典与数组  没什么好讲的 4. document 文档 JavaScript常用函数方法 5. 通过给标签设置id在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="easy-JavaScript">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/easy-JavaScript/index.html">
 <meta property="og:site_name" content="LeeywBlog">
+<meta property="og:description" content="easy-js#easy-javascript  code 目录1. 第一个导航页面案例2. 监听事件3. js的七大类型end. tips1. 第一个导航页面案例 需要用到的一些函数1. console.log() 打印 排错校验神器 2. while 循环 没什么好讲的 3. 字典与数组  没什么好讲的 4. document 文档 JavaScript常用函数方法 5. 通过给标签设置id在">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-07T14:50:35.648Z">
+<meta property="og:updated_time" content="2019-04-26T13:33:52.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="easy-JavaScript">
+<meta name="twitter:description" content="easy-js#easy-javascript  code 目录1. 第一个导航页面案例2. 监听事件3. js的七大类型end. tips1. 第一个导航页面案例 需要用到的一些函数1. console.log() 打印 排错校验神器 2. while 循环 没什么好讲的 3. 字典与数组  没什么好讲的 4. document 文档 JavaScript常用函数方法 5. 通过给标签设置id在">
 
 
 
@@ -296,7 +299,78 @@
       
 
       
-        
+        <h1 id="easy-js"><a href="#easy-js" class="headerlink" title="easy-js"></a>easy-js</h1><p>#easy-javascript</p>
+<blockquote>
+<h5 id="code"><a href="#code" class="headerlink" title="code"></a><script>code</script></h5></blockquote>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-第一个导航页面案例"><a href="#1-第一个导航页面案例" class="headerlink" title="1. 第一个导航页面案例"></a>1. 第一个导航页面案例</h3><h3 id="2-监听事件"><a href="#2-监听事件" class="headerlink" title="2. 监听事件"></a>2. 监听事件</h3><h3 id="3-js的七大类型"><a href="#3-js的七大类型" class="headerlink" title="3. js的七大类型"></a>3. js的七大类型</h3><h3 id="end-tips"><a href="#end-tips" class="headerlink" title="end. tips"></a>end. tips</h3><h3 id="1-第一个导航页面案例-1"><a href="#1-第一个导航页面案例-1" class="headerlink" title="1. 第一个导航页面案例"></a>1. 第一个导航页面案例</h3><blockquote>
+<h5 id="需要用到的一些函数"><a href="#需要用到的一些函数" class="headerlink" title="需要用到的一些函数"></a>需要用到的一些函数</h5><pre><code>1. console.log() 打印 排错校验神器
+2. while 循环 没什么好讲的
+3. 字典与数组  没什么好讲的
+4. document 文档 JavaScript常用函数方法
+5. 通过给标签设置id在JavaScript中对标签进行操作
+6. onkeypress 从键盘在document中输入数据后，获取所有键入值
+7. location.href   当前页面链接 （可通过事件改写 进行跳转页面操作）
+8. window.open(href)  从新窗口中打开网页
+</code></pre></blockquote>
+<h3 id="2-监听事件-1"><a href="#2-监听事件-1" class="headerlink" title="2. 监听事件"></a>2. 监听事件</h3><blockquote>
+<h5 id="监听鼠标"><a href="#监听鼠标" class="headerlink" title="监听鼠标"></a>监听鼠标</h5><p>···</p>
+</blockquote>
+<pre><code>//监听鼠标按下
+document.onmousedown = function(x){
+    console.log(x)
+}
+
+//监听鼠标移动
+document.onmousemove = function(x){
+    console.log(x)
+}
+
+//监听松开鼠标
+document.onmouseup = function(x){
+    console.log(x)
+}
+
+//监听鼠标点击某个对象
+obj.onclick = function(x){
+    console.log(x)
+}
+</code></pre><p>···</p>
+<blockquote>
+<h5 id="监听键盘"><a href="#监听键盘" class="headerlink" title="监听键盘"></a>监听键盘</h5><p>···</p>
+</blockquote>
+<pre><code>//监听键盘按下某个键
+document.onkeypress = function(x){
+    console.log(x)
+}
+</code></pre><p>···</p>
+<blockquote>
+<h5 id="监听错误"><a href="#监听错误" class="headerlink" title="监听错误"></a>监听错误</h5><p>···</p>
+</blockquote>
+<pre><code>//监听某个对象的错误信息
+obj.onerror = function(x){
+    console.log(x)
+}
+</code></pre><p>···</p>
+<h3 id="3-JS的七大类型"><a href="#3-JS的七大类型" class="headerlink" title="3. JS的七大类型"></a>3. JS的七大类型</h3><pre><code>1.number(数值类型)
+
+2.string(用单双引号括起来)
+
+3.undefined(常用于变量，可直接赋值于变量（推荐），或者对象)
+    查看变量是否存在if(var in window）{...code...}
+
+4.null(常用于对象，也可以直接赋值于对象(推荐)|变量)
+
+5.object(数组，列表包含于此，非基本类型的类型)
+
+    可以通过delete删除对象key in和forin 查询打印等操作
+
+6.boolean(真假)
+
+7.symbol
+
+tips:以及已经存在的函数方法  会有function 类型
+可以通过typeof var 来查看变量类型
+</code></pre><h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Q:为什么我设置了监听mouse(touch)却在设备上无法使用</span><br><span class="line">A:或许你该看看该设配是否支持mouse(touch) 下面命令</span><br><span class="line">        document.body.ontouchstart !== undefined</span><br><span class="line">        undefine:未定义，不支持</span><br><span class="line">        null:未初始化，支持</span><br><span class="line">        //通过特性检测来解决问题</span><br><span class="line">        if(document.body.ontouchstart !== undefined)&#123;//特性检测</span><br><span class="line">            //监听touch</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">            //监听mouse</span><br><span class="line">         &#125;</span><br><span class="line">Q：NULL和undefined的区别</span><br><span class="line">A：一个变量没有被赋值则是undefined(更被js所接受)</span><br><span class="line">    一个对象object暂时不给值，则给一个NULL（推荐，也可以给undefined）</span><br><span class="line">    一个非对象值推荐给undefined(变量不赋给值默认Undefined，可写可不写)</span><br><span class="line">      NULL表示空对象，undefined表示非空对象</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -384,8 +458,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -427,6 +510,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#easy-js"><span class="nav-number">1.</span> <span class="nav-text">easy-js</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#code"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">code</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一个导航页面案例"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 第一个导航页面案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-监听事件"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 监听事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-js的七大类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. js的七大类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#end-tips"><span class="nav-number">1.1.4.</span> <span class="nav-text">end. tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一个导航页面案例-1"><span class="nav-number">1.1.5.</span> <span class="nav-text">1. 第一个导航页面案例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#需要用到的一些函数"><span class="nav-number">1.1.5.0.1.</span> <span class="nav-text">需要用到的一些函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-监听事件-1"><span class="nav-number">1.1.6.</span> <span class="nav-text">2. 监听事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#监听鼠标"><span class="nav-number">1.1.6.0.1.</span> <span class="nav-text">监听鼠标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听键盘"><span class="nav-number">1.1.6.0.2.</span> <span class="nav-text">监听键盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听错误"><span class="nav-number">1.1.6.0.3.</span> <span class="nav-text">监听错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-JS的七大类型"><span class="nav-number">1.1.7.</span> <span class="nav-text">3. JS的七大类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-number">1.1.8.</span> <span class="nav-text">tips</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
