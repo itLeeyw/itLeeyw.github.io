@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="认识DOMDOM 基础 When a web page is loaded, the browser creates a Document Object Model of the page.The HTML DOM model is constructed as a tree of Objects:译: 当加载一个网页的时，浏览器会创建一个由文档、对象、模式组成的页面，这个HTML DOM 构造了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-DOM">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/HTML-DOM/index.html">
+<meta property="og:site_name" content="LeeywBlog">
+<meta property="og:description" content="认识DOMDOM 基础 When a web page is loaded, the browser creates a Document Object Model of the page.The HTML DOM model is constructed as a tree of Objects:译: 当加载一个网页的时，浏览器会创建一个由文档、对象、模式组成的页面，这个HTML DOM 构造了">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="en-resource://database/1306:1">
+<meta property="og:updated_time" content="2019-05-06T14:03:24.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML-DOM">
+<meta name="twitter:description" content="认识DOMDOM 基础 When a web page is loaded, the browser creates a Document Object Model of the page.The HTML DOM model is constructed as a tree of Objects:译: 当加载一个网页的时，浏览器会创建一个由文档、对象、模式组成的页面，这个HTML DOM 构造了">
+<meta name="twitter:image" content="en-resource://database/1306:1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/HTML-DOM/">
+
+
+
+
+
+  <title>HTML-DOM | LeeywBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeywBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我的学习笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/HTML-DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML-DOM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-06T22:02:54+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="认识DOM"><a href="#认识DOM" class="headerlink" title="认识DOM"></a>认识DOM</h1><h2 id="DOM-基础"><a href="#DOM-基础" class="headerlink" title="DOM 基础"></a>DOM 基础</h2><blockquote>
+<p>When a web page is loaded, the browser creates a Document Object Model of the page.The HTML DOM model is constructed as a tree of Objects:<br>译: 当加载一个网页的时，浏览器会创建一个由文档、对象、模式组成的页面，这个HTML DOM 构造了一个对象树</p>
+</blockquote>
+<blockquote>
+<p>What You Will Learn?<br>Change to HTML elements and Style(CSS) and lesten to DOM event and add or  delete HTML element<br>DOM is a W3C standard,that is define for  accessing documents</p>
+</blockquote>
+<blockquote>
+<p>What is the HTML DOM?<br>The HTML DOM is a standard object model and programming interface  for HTML . it define:<br>HTML element as Object<br>all properties in HTML element<br>thet events for all HTML element<br>the methods to access all HTML element</p>
+</blockquote>
+<h2 id="HTML-DOM-的方法"><a href="#HTML-DOM-的方法" class="headerlink" title="HTML DOM 的方法"></a>HTML DOM 的方法</h2><blockquote>
+<p>HTML DOM 方法是一个可以执行的动作(在HTML element中)<br>HTML DOM 属性是一个value(在HTML element中) 所以可以设置或者改变它</p>
+</blockquote>
+<blockquote>
+<p> about DOM Programming Interface .<br> HTML DOM 用Javascript或者其他的编程语言进行访问<br> 在DOM中，所有的html元素都是Object<br> 编程接口是每个对象的属性和methods<br> property是一个value你可以get or set 这个value<br> method 是一个动词，你可以对HTMl元素进行添加和删除<br>例子：<br>    &lt;!DOCTYPE html&gt;<br>    <html><br>    <body><br>    <h2>My First Page</h2></body></html></p>
+</blockquote>
+<pre><code>&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello World!&quot;;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h2&gt;My First Page&lt;/h2&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello World!&quot;;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>在上面例子中，<strong>getElementById</strong> 是一个方法，但是在HTML中，它是一个属性</p>
+</blockquote>
+<blockquote>
+<p>The<strong> getElementById</strong> Method 是最常见的访问HTMl中页面元素的方式。<br>上面的例子中getElementById 方法使用 id=”demo”寻找到元素</p>
+</blockquote>
+<blockquote>
+<p><strong>innerHTML</strong>属性是最简单获取元素中内容的方法<br><strong>innerHTML</strong> property 可以很有效的获取或者改变页面元素内容</p>
+<blockquote>
+<p>innerHTML可以改变任何HTML element的内容，包括<body> 和 <html></html></body></p>
+</blockquote>
+</blockquote>
+<h2 id="The-HTML-DOM-Document"><a href="#The-HTML-DOM-Document" class="headerlink" title="The HTML DOM Document"></a>The HTML DOM Document</h2><blockquote>
+<p>HTML DOM Document Object 是你Web page中所有其他对象的所有者(爸爸)</p>
+</blockquote>
+<blockquote>
+<p>About HTML DOM Document</p>
+<ol>
+<li>document Object 就是你的web page</li>
+<li>如果你想访问你web page的任何元素，你都是从document Object开始的<br>3.下面的一些例子将会告诉你操作和访问HTML的办法</li>
+</ol>
+</blockquote>
+<blockquote>
+<p> 寻找 HTML Elements ?</p>
+</blockquote>
+<pre><code>Method
+document.getElementById(id) //通过元素id寻找元素
+
+document.getElementsByTagName(name)//通过标签名字寻找元素s
+
+document.getElementsByClassName(name)//通过class的名字寻找元素s
+</code></pre><blockquote>
+<p>改变页面元素？ </p>
+</blockquote>
+<pre><code>Property
+
+element.innerHTML =  new html content //更改元素内容
+
+element.attribute = new value//更改元素属性值    
+
+element.style.property = new style //更改元素的style(CSS)
+
+Method
+element.setAttribute(attribute, value)//改变元素的属性值
+</code></pre><blockquote>
+<p>添加和删除元素？</p>
+</blockquote>
+<pre><code>Method    
+document.createElement(element)//创建一个HTML元素
+
+document.removeChild(element)//移除一个HTML元素儿子
+
+document.appendChild(element)//添加一个元素儿子
+
+document.replaceChild(new, old)//替换一个元素儿子
+
+document.write(text)//Write into the HTML output stream
+</code></pre><blockquote>
+<p>添加一个事件处理函数？</p>
+</blockquote>
+<pre><code>Method 
+document.getElementById(id).onclick = function(){code} //添加一个事件处理程序，code中为onclick 事件
+</code></pre><blockquote>
+<p>Finding HTML 对象 ?<br>第一版的HTML DOM 只定义了11个HTML 对象，对象集合和性质。这是在HTML5中仍然有效的，后来有了第三版的HTML DOM 添加了很多的对象，集合以及性质<br><img src="en-resource://database/1306:1" alt="a9cfd0a63e16b169ff2f19d00d005c88.png"></p>
+</blockquote>
+<h2 id="JavaScript-HTML-DOM-元素"><a href="#JavaScript-HTML-DOM-元素" class="headerlink" title="JavaScript HTML DOM 元素"></a>JavaScript HTML DOM 元素</h2><blockquote>
+<p>这将教你如何查找访问到一个page中的element</p>
+</blockquote>
+<blockquote>
+<p>查找HTML 页面元素<br> 通常你会想使用JavaScript操作HTML的元素<br> To do so， 你首先得找到element，有几种办法可以实现：</p>
+</blockquote>
+<pre><code>寻找页面元素 By （Id ，Tag name, Class name, Css selectors , HTML Object Collections） 
+</code></pre><blockquote>
+<p>通过Id 寻找页面元素</p>
+<blockquote>
+<p>这是寻找页面元素最简单的办法。例如：</p>
+</blockquote>
+</blockquote>
+<pre><code>var myElement = document.getElementById(&quot;intro&quot;);
+</code></pre><blockquote>
+<p>如果寻找到了元素，则会返回一个元素作为对象，如果没有找到，则会返回null</p>
+</blockquote>
+<blockquote>
+<p>通过标签名字找元素</p>
+</blockquote>
+<pre><code>var x = document.getElementsByTagName(&quot;p&quot;);
+</code></pre><blockquote>
+<p>通过类名找元素</p>
+</blockquote>
+<pre><code>var x = document.getElementsByClassName(&quot;intro&quot;);
+</code></pre><blockquote>
+<p>通过Css选择器找元素</p>
+<blockquote>
+<p>如果你想找到所有指定的HTML元素的CSS选择器(id,class names, types, attributes, value of attributes, etc ),则可以使用querySelectorAll()方法</p>
+</blockquote>
+</blockquote>
+<pre><code>var x = document.querySelectorAll(&quot;p.intro&quot;);
+</code></pre><blockquote>
+<p>querySelectorAll()不支持IE8以及之前版本，ie果然是辣鸡</p>
+</blockquote>
+<blockquote>
+<p>通过对象集 来找元素<br>例子：通过发现表单id为frm1的元素，再遍历元素中的值获取后innerHTML添加内容</p>
+</blockquote>
+<pre><code>var x = document.forms[&quot;frm1&quot;];
+var text = &quot;&quot;;
+var i;
+for (i = 0; i &lt; x.length; i++) {
+    text += x.elements[i].value + &quot;&lt;br&gt;&quot;;
+}
+document.getElementById(&quot;demo&quot;).innerHTML = text;
+</code></pre><blockquote>
+<p>下面的HTML Object和对象集 也可以访问进入使用</p>
+</blockquote>
+<pre><code>document.anchors
+document.body
+document.documentElement
+document.embeds
+document.forms
+document.head
+document.images
+document.links
+document.scripts
+document.title
+</code></pre><h2 id="JavaScript-HTML-DOM-Changing-HTML"><a href="#JavaScript-HTML-DOM-Changing-HTML" class="headerlink" title="JavaScript HTML DOM - Changing HTML"></a>JavaScript HTML DOM - Changing HTML</h2><blockquote>
+<p>HTML DOM 允许JavaScript 改变page element 内容</p>
+</blockquote>
+<blockquote>
+<p>改变HTML的输出流<br>Javascript 能创建 dynamic(动态) 的html内容，通过document.write()直接作为HTML 的输出流<br>例子：输出时间</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+document.write(Date());
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>注意在加载文档之后不要使用document.write()，这会覆盖之前的文档内容</p>
+</blockquote>
+<blockquote>
+<p>改变HTML内容<br>使用inner HTML来修改HTML Element 的content 是 easiest way<br> syntax(语法):</p>
+</blockquote>
+<pre><code>document.getElementById(id).innerHTML = new HTML
+</code></pre><blockquote>
+<p>改变属性的值<br>改变HTML属性值的语法:</p>
+</blockquote>
+<pre><code>document.getElementById(id).attribute = new value
+
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;     &lt;img id=&quot;myImage&quot; src=&quot;smiley.gif&quot;&gt;
+&lt;script&gt;                  document.getElementById(&quot;myImage&quot;).src = &quot;landscape.jpg&quot;;       &lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><h2 id="JavaScript-HTML-DOM-Changing-CSS"><a href="#JavaScript-HTML-DOM-Changing-CSS" class="headerlink" title="JavaScript HTML DOM - Changing CSS"></a>JavaScript HTML DOM - Changing CSS</h2><blockquote>
+<p>HTML DOM 允许JavaScript改变HTML elements的Style</p>
+</blockquote>
+<blockquote>
+<p>改变HTML 的Style<br>我们要改变HTML元素风格的使用的语法:</p>
+</blockquote>
+<pre><code>document.getElementById(id).style.property = new style
+</code></pre><blockquote>
+<p>通过下面的例子来改变元素p的Style</p>
+</blockquote>
+<pre><code>&lt;html&gt;&lt;body&gt;
+&lt;p id=&quot;p2&quot;&gt;Hello World!&lt;/p&gt;
+&lt;script&gt;
+document.getElementById(&quot;p2&quot;).style.color = &quot;blue&quot;;
+&lt;/script&gt;
+&lt;p&gt;The paragraph above was changed by a script.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>利用事件</p>
+<blockquote>
+<p>HTML DOM 允许你在事件发生时执行代码<br>事件是HTML元素在浏览器上”things happen”(事件发生)时生成的</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>元素的点击</li>
+<li>页面的加载</li>
+<li>字段的改变</li>
+</ul>
+<blockquote>
+<p>你会了解很多的事件<br>下面这个例子改变了HTML Element Style 对于id=”id1”的标签，(在点击这个按钮时</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;
+&lt;h1 id=&quot;id1&quot;&gt;My Heading 1&lt;/h1&gt;
+&lt;button type=&quot;button&quot; 
+onclick=&quot;document.getElementById(&apos;id1&apos;).style.color = &apos;red&apos;&quot;&gt;Click Me!
+&lt;/button&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>上面这个例子讲事件封装在button中</p>
+</blockquote>
+<h2 id="JavaScript-HTML-DOM-Animation"><a href="#JavaScript-HTML-DOM-Animation" class="headerlink" title="JavaScript HTML DOM Animation"></a>JavaScript HTML DOM Animation</h2><blockquote>
+<p>了解如何使用Javascript创建HTML动画</p>
+</blockquote>
+<blockquote>
+<p>一个基础的web页面中，所有的动画应当都基于一个容器<br>分别创建容器样式的风格，以及动画样式的Style<br>动画通过计时器控制，若计时器间隔够小则会让动画看起来十分连续</p>
+</blockquote>
+<pre><code>var id = setInterval(frame, 5);
+function frame() {  
+if (/* test for finished */) {  
+</code></pre><ul>
+<li><p>clearInterval(id);  </p>
+<p>} else {<br>/<em> code to change the element style </em>/<br>}<br>}</p>
+<blockquote>
+<p>动画执行顺序</p>
+</blockquote>
+</li>
+<li><p>获取动画标签对象</p>
+</li>
+<li>设置一个源点(计时)</li>
+<li>设置间隔(frame,5)参数1是动作，参数2是间隔</li>
+<li>设置一个动作函数，并设置出点(否则会死循环),若完成动作则使用clearInterval(id)退出，id为setInterval(1,2)的对象</li>
+<li>此时一个简单动画完成</li>
+<li>安利一个tween.js的外部库</li>
+</ul>
+<h2 id="JavaScript-HTML-DOM-Events"><a href="#JavaScript-HTML-DOM-Events" class="headerlink" title="JavaScript HTML DOM Events"></a>JavaScript HTML DOM Events</h2><blockquote>
+<p>HTML DOM 允许JavaScript对于事件做出反应</p>
+</blockquote>
+<blockquote>
+<p>对事件做出反应？<br>当用户点击HTML Elements 时候JavaScript能通过code执行做出相应的反应</p>
+</blockquote>
+<blockquote>
+<p>HTML  事件的例子</p>
+</blockquote>
+<ul>
+<li>点击鼠标</li>
+<li>页面加载</li>
+<li>图片加载</li>
+<li>鼠标移动到某个元素</li>
+<li>表单提交</li>
+<li>敲击键盘</li>
+</ul>
+<blockquote>
+<p>我们可以通过封装事件在标签中，或者script的函数中来实现监听效果</p>
+</blockquote>
+<blockquote>
+<p>可以通过分配事件属性给HTML元素<br>分配一个onclick事件给一个按钮元素</p>
+</blockquote>
+<pre><code>&lt;button onclick=&quot;displayDate()&quot;&gt;Try it&lt;/button&gt;
+</code></pre><blockquote>
+<p>指定使用HTML DOM 事件<br>HTML DOM 允许你使用JavaScript事件分配给HTML元素<br>例如，我们指定一个onclick事件给按钮元素</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+document.getElementById(&quot;myBtn&quot;).onclick = displayDate;&lt;/script&gt;
+</code></pre><blockquote>
+<p>上述例子为，将分配一个onclick事件给id为MyBth的标签对象在点击时执行名为displayDate的函数</p>
+</blockquote>
+<blockquote>
+<p>加载页面和离开页面事件 onload and onunload events<br>这两个事件在进入和离开page时发生<br>onload 可以用来检测访问者浏览器的版本的类型，然后加载对应的版本信息渲染在web page<br>这两个函数也可以用来处理cookies<br>例子：<br>    <body onload="checkCookies()"></body></p>
+</blockquote>
+<blockquote>
+<p>onchange 事件<br>onchange 事件常常使用在输入字段的验证</p>
+</blockquote>
+<pre><code>&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;
+</code></pre><blockquote>
+<p>上述例子中，通过在script中使用toUpperCase() 将小写转换成大写</p>
+</blockquote>
+<blockquote>
+<p>onmouseover and onmouseout 会在鼠标在标签对象上或离开标签对象上时发生</p>
+</blockquote>
+<blockquote>
+<p>onmousedown and onmouseup and onclick 事件是所有的mouse-click，第一个会在鼠标点击的时候发生，第二个会在鼠标释放的时候发生，第三个会在鼠标点击完成后发生</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/30/BA-JS-Object-protoType-Link-md/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Leeyw</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#认识DOM"><span class="nav-number">1.</span> <span class="nav-text">认识DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-基础"><span class="nav-number">1.1.</span> <span class="nav-text">DOM 基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM-的方法"><span class="nav-number">1.2.</span> <span class="nav-text">HTML DOM 的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">My First Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-HTML-DOM-Document"><span class="nav-number">1.4.</span> <span class="nav-text">The HTML DOM Document</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-HTML-DOM-元素"><span class="nav-number">1.5.</span> <span class="nav-text">JavaScript HTML DOM 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-HTML-DOM-Changing-HTML"><span class="nav-number">1.6.</span> <span class="nav-text">JavaScript HTML DOM - Changing HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-HTML-DOM-Changing-CSS"><span class="nav-number">1.7.</span> <span class="nav-text">JavaScript HTML DOM - Changing CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-HTML-DOM-Animation"><span class="nav-number">1.8.</span> <span class="nav-text">JavaScript HTML DOM Animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-HTML-DOM-Events"><span class="nav-number">1.9.</span> <span class="nav-text">JavaScript HTML DOM Events</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leeyw</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

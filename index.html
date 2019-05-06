@@ -229,6 +229,427 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/HTML-DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/06/HTML-DOM/" itemprop="url">HTML-DOM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-06T22:02:54+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="认识DOM"><a href="#认识DOM" class="headerlink" title="认识DOM"></a>认识DOM</h1><h2 id="DOM-基础"><a href="#DOM-基础" class="headerlink" title="DOM 基础"></a>DOM 基础</h2><blockquote>
+<p>When a web page is loaded, the browser creates a Document Object Model of the page.The HTML DOM model is constructed as a tree of Objects:<br>译: 当加载一个网页的时，浏览器会创建一个由文档、对象、模式组成的页面，这个HTML DOM 构造了一个对象树</p>
+</blockquote>
+<blockquote>
+<p>What You Will Learn?<br>Change to HTML elements and Style(CSS) and lesten to DOM event and add or  delete HTML element<br>DOM is a W3C standard,that is define for  accessing documents</p>
+</blockquote>
+<blockquote>
+<p>What is the HTML DOM?<br>The HTML DOM is a standard object model and programming interface  for HTML . it define:<br>HTML element as Object<br>all properties in HTML element<br>thet events for all HTML element<br>the methods to access all HTML element</p>
+</blockquote>
+<h2 id="HTML-DOM-的方法"><a href="#HTML-DOM-的方法" class="headerlink" title="HTML DOM 的方法"></a>HTML DOM 的方法</h2><blockquote>
+<p>HTML DOM 方法是一个可以执行的动作(在HTML element中)<br>HTML DOM 属性是一个value(在HTML element中) 所以可以设置或者改变它</p>
+</blockquote>
+<blockquote>
+<p> about DOM Programming Interface .<br> HTML DOM 用Javascript或者其他的编程语言进行访问<br> 在DOM中，所有的html元素都是Object<br> 编程接口是每个对象的属性和methods<br> property是一个value你可以get or set 这个value<br> method 是一个动词，你可以对HTMl元素进行添加和删除<br>例子：<br>    &lt;!DOCTYPE html&gt;<br>    <html><br>    <body><br>    <h2>My First Page</h2></body></html></p>
+</blockquote>
+<pre><code>&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello World!&quot;;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h2&gt;My First Page&lt;/h2&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello World!&quot;;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>在上面例子中，<strong>getElementById</strong> 是一个方法，但是在HTML中，它是一个属性</p>
+</blockquote>
+<blockquote>
+<p>The<strong> getElementById</strong> Method 是最常见的访问HTMl中页面元素的方式。<br>上面的例子中getElementById 方法使用 id=”demo”寻找到元素</p>
+</blockquote>
+<blockquote>
+<p><strong>innerHTML</strong>属性是最简单获取元素中内容的方法<br><strong>innerHTML</strong> property 可以很有效的获取或者改变页面元素内容</p>
+<blockquote>
+<p>innerHTML可以改变任何HTML element的内容，包括<body> 和 <html></html></body></p>
+</blockquote>
+</blockquote>
+<h2 id="The-HTML-DOM-Document"><a href="#The-HTML-DOM-Document" class="headerlink" title="The HTML DOM Document"></a>The HTML DOM Document</h2><blockquote>
+<p>HTML DOM Document Object 是你Web page中所有其他对象的所有者(爸爸)</p>
+</blockquote>
+<blockquote>
+<p>About HTML DOM Document</p>
+<ol>
+<li>document Object 就是你的web page</li>
+<li>如果你想访问你web page的任何元素，你都是从document Object开始的<br>3.下面的一些例子将会告诉你操作和访问HTML的办法</li>
+</ol>
+</blockquote>
+<blockquote>
+<p> 寻找 HTML Elements ?</p>
+</blockquote>
+<pre><code>Method
+document.getElementById(id) //通过元素id寻找元素
+
+document.getElementsByTagName(name)//通过标签名字寻找元素s
+
+document.getElementsByClassName(name)//通过class的名字寻找元素s
+</code></pre><blockquote>
+<p>改变页面元素？ </p>
+</blockquote>
+<pre><code>Property
+
+element.innerHTML =  new html content //更改元素内容
+
+element.attribute = new value//更改元素属性值    
+
+element.style.property = new style //更改元素的style(CSS)
+
+Method
+element.setAttribute(attribute, value)//改变元素的属性值
+</code></pre><blockquote>
+<p>添加和删除元素？</p>
+</blockquote>
+<pre><code>Method    
+document.createElement(element)//创建一个HTML元素
+
+document.removeChild(element)//移除一个HTML元素儿子
+
+document.appendChild(element)//添加一个元素儿子
+
+document.replaceChild(new, old)//替换一个元素儿子
+
+document.write(text)//Write into the HTML output stream
+</code></pre><blockquote>
+<p>添加一个事件处理函数？</p>
+</blockquote>
+<pre><code>Method 
+document.getElementById(id).onclick = function(){code} //添加一个事件处理程序，code中为onclick 事件
+</code></pre><blockquote>
+<p>Finding HTML 对象 ?<br>第一版的HTML DOM 只定义了11个HTML 对象，对象集合和性质。这是在HTML5中仍然有效的，后来有了第三版的HTML DOM 添加了很多的对象，集合以及性质<br><img src="en-resource://database/1306:1" alt="a9cfd0a63e16b169ff2f19d00d005c88.png"></p>
+</blockquote>
+<h2 id="JavaScript-HTML-DOM-元素"><a href="#JavaScript-HTML-DOM-元素" class="headerlink" title="JavaScript HTML DOM 元素"></a>JavaScript HTML DOM 元素</h2><blockquote>
+<p>这将教你如何查找访问到一个page中的element</p>
+</blockquote>
+<blockquote>
+<p>查找HTML 页面元素<br> 通常你会想使用JavaScript操作HTML的元素<br> To do so， 你首先得找到element，有几种办法可以实现：</p>
+</blockquote>
+<pre><code>寻找页面元素 By （Id ，Tag name, Class name, Css selectors , HTML Object Collections） 
+</code></pre><blockquote>
+<p>通过Id 寻找页面元素</p>
+<blockquote>
+<p>这是寻找页面元素最简单的办法。例如：</p>
+</blockquote>
+</blockquote>
+<pre><code>var myElement = document.getElementById(&quot;intro&quot;);
+</code></pre><blockquote>
+<p>如果寻找到了元素，则会返回一个元素作为对象，如果没有找到，则会返回null</p>
+</blockquote>
+<blockquote>
+<p>通过标签名字找元素</p>
+</blockquote>
+<pre><code>var x = document.getElementsByTagName(&quot;p&quot;);
+</code></pre><blockquote>
+<p>通过类名找元素</p>
+</blockquote>
+<pre><code>var x = document.getElementsByClassName(&quot;intro&quot;);
+</code></pre><blockquote>
+<p>通过Css选择器找元素</p>
+<blockquote>
+<p>如果你想找到所有指定的HTML元素的CSS选择器(id,class names, types, attributes, value of attributes, etc ),则可以使用querySelectorAll()方法</p>
+</blockquote>
+</blockquote>
+<pre><code>var x = document.querySelectorAll(&quot;p.intro&quot;);
+</code></pre><blockquote>
+<p>querySelectorAll()不支持IE8以及之前版本，ie果然是辣鸡</p>
+</blockquote>
+<blockquote>
+<p>通过对象集 来找元素<br>例子：通过发现表单id为frm1的元素，再遍历元素中的值获取后innerHTML添加内容</p>
+</blockquote>
+<pre><code>var x = document.forms[&quot;frm1&quot;];
+var text = &quot;&quot;;
+var i;
+for (i = 0; i &lt; x.length; i++) {
+    text += x.elements[i].value + &quot;&lt;br&gt;&quot;;
+}
+document.getElementById(&quot;demo&quot;).innerHTML = text;
+</code></pre><blockquote>
+<p>下面的HTML Object和对象集 也可以访问进入使用</p>
+</blockquote>
+<pre><code>document.anchors
+document.body
+document.documentElement
+document.embeds
+document.forms
+document.head
+document.images
+document.links
+document.scripts
+document.title
+</code></pre><h2 id="JavaScript-HTML-DOM-Changing-HTML"><a href="#JavaScript-HTML-DOM-Changing-HTML" class="headerlink" title="JavaScript HTML DOM - Changing HTML"></a>JavaScript HTML DOM - Changing HTML</h2><blockquote>
+<p>HTML DOM 允许JavaScript 改变page element 内容</p>
+</blockquote>
+<blockquote>
+<p>改变HTML的输出流<br>Javascript 能创建 dynamic(动态) 的html内容，通过document.write()直接作为HTML 的输出流<br>例子：输出时间</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+document.write(Date());
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>注意在加载文档之后不要使用document.write()，这会覆盖之前的文档内容</p>
+</blockquote>
+<blockquote>
+<p>改变HTML内容<br>使用inner HTML来修改HTML Element 的content 是 easiest way<br> syntax(语法):</p>
+</blockquote>
+<pre><code>document.getElementById(id).innerHTML = new HTML
+</code></pre><blockquote>
+<p>改变属性的值<br>改变HTML属性值的语法:</p>
+</blockquote>
+<pre><code>document.getElementById(id).attribute = new value
+
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;     &lt;img id=&quot;myImage&quot; src=&quot;smiley.gif&quot;&gt;
+&lt;script&gt;                  document.getElementById(&quot;myImage&quot;).src = &quot;landscape.jpg&quot;;       &lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><h2 id="JavaScript-HTML-DOM-Changing-CSS"><a href="#JavaScript-HTML-DOM-Changing-CSS" class="headerlink" title="JavaScript HTML DOM - Changing CSS"></a>JavaScript HTML DOM - Changing CSS</h2><blockquote>
+<p>HTML DOM 允许JavaScript改变HTML elements的Style</p>
+</blockquote>
+<blockquote>
+<p>改变HTML 的Style<br>我们要改变HTML元素风格的使用的语法:</p>
+</blockquote>
+<pre><code>document.getElementById(id).style.property = new style
+</code></pre><blockquote>
+<p>通过下面的例子来改变元素p的Style</p>
+</blockquote>
+<pre><code>&lt;html&gt;&lt;body&gt;
+&lt;p id=&quot;p2&quot;&gt;Hello World!&lt;/p&gt;
+&lt;script&gt;
+document.getElementById(&quot;p2&quot;).style.color = &quot;blue&quot;;
+&lt;/script&gt;
+&lt;p&gt;The paragraph above was changed by a script.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>利用事件</p>
+<blockquote>
+<p>HTML DOM 允许你在事件发生时执行代码<br>事件是HTML元素在浏览器上”things happen”(事件发生)时生成的</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>元素的点击</li>
+<li>页面的加载</li>
+<li>字段的改变</li>
+</ul>
+<blockquote>
+<p>你会了解很多的事件<br>下面这个例子改变了HTML Element Style 对于id=”id1”的标签，(在点击这个按钮时</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;
+&lt;h1 id=&quot;id1&quot;&gt;My Heading 1&lt;/h1&gt;
+&lt;button type=&quot;button&quot; 
+onclick=&quot;document.getElementById(&apos;id1&apos;).style.color = &apos;red&apos;&quot;&gt;Click Me!
+&lt;/button&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>上面这个例子讲事件封装在button中</p>
+</blockquote>
+<h2 id="JavaScript-HTML-DOM-Animation"><a href="#JavaScript-HTML-DOM-Animation" class="headerlink" title="JavaScript HTML DOM Animation"></a>JavaScript HTML DOM Animation</h2><blockquote>
+<p>了解如何使用Javascript创建HTML动画</p>
+</blockquote>
+<blockquote>
+<p>一个基础的web页面中，所有的动画应当都基于一个容器<br>分别创建容器样式的风格，以及动画样式的Style<br>动画通过计时器控制，若计时器间隔够小则会让动画看起来十分连续</p>
+</blockquote>
+<pre><code>var id = setInterval(frame, 5);
+function frame() {  
+if (/* test for finished */) {  
+</code></pre><ul>
+<li><p>clearInterval(id);  </p>
+<p>} else {<br>/<em> code to change the element style </em>/<br>}<br>}</p>
+<blockquote>
+<p>动画执行顺序</p>
+</blockquote>
+</li>
+<li><p>获取动画标签对象</p>
+</li>
+<li>设置一个源点(计时)</li>
+<li>设置间隔(frame,5)参数1是动作，参数2是间隔</li>
+<li>设置一个动作函数，并设置出点(否则会死循环),若完成动作则使用clearInterval(id)退出，id为setInterval(1,2)的对象</li>
+<li>此时一个简单动画完成</li>
+<li>安利一个tween.js的外部库</li>
+</ul>
+<h2 id="JavaScript-HTML-DOM-Events"><a href="#JavaScript-HTML-DOM-Events" class="headerlink" title="JavaScript HTML DOM Events"></a>JavaScript HTML DOM Events</h2><blockquote>
+<p>HTML DOM 允许JavaScript对于事件做出反应</p>
+</blockquote>
+<blockquote>
+<p>对事件做出反应？<br>当用户点击HTML Elements 时候JavaScript能通过code执行做出相应的反应</p>
+</blockquote>
+<blockquote>
+<p>HTML  事件的例子</p>
+</blockquote>
+<ul>
+<li>点击鼠标</li>
+<li>页面加载</li>
+<li>图片加载</li>
+<li>鼠标移动到某个元素</li>
+<li>表单提交</li>
+<li>敲击键盘</li>
+</ul>
+<blockquote>
+<p>我们可以通过封装事件在标签中，或者script的函数中来实现监听效果</p>
+</blockquote>
+<blockquote>
+<p>可以通过分配事件属性给HTML元素<br>分配一个onclick事件给一个按钮元素</p>
+</blockquote>
+<pre><code>&lt;button onclick=&quot;displayDate()&quot;&gt;Try it&lt;/button&gt;
+</code></pre><blockquote>
+<p>指定使用HTML DOM 事件<br>HTML DOM 允许你使用JavaScript事件分配给HTML元素<br>例如，我们指定一个onclick事件给按钮元素</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+document.getElementById(&quot;myBtn&quot;).onclick = displayDate;&lt;/script&gt;
+</code></pre><blockquote>
+<p>上述例子为，将分配一个onclick事件给id为MyBth的标签对象在点击时执行名为displayDate的函数</p>
+</blockquote>
+<blockquote>
+<p>加载页面和离开页面事件 onload and onunload events<br>这两个事件在进入和离开page时发生<br>onload 可以用来检测访问者浏览器的版本的类型，然后加载对应的版本信息渲染在web page<br>这两个函数也可以用来处理cookies<br>例子：<br>    <body onload="checkCookies()"></body></p>
+</blockquote>
+<blockquote>
+<p>onchange 事件<br>onchange 事件常常使用在输入字段的验证</p>
+</blockquote>
+<pre><code>&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;
+</code></pre><blockquote>
+<p>上述例子中，通过在script中使用toUpperCase() 将小写转换成大写</p>
+</blockquote>
+<blockquote>
+<p>onmouseover and onmouseout 会在鼠标在标签对象上或离开标签对象上时发生</p>
+</blockquote>
+<blockquote>
+<p>onmousedown and onmouseup and onclick 事件是所有的mouse-click，第一个会在鼠标点击的时候发生，第二个会在鼠标释放的时候发生，第三个会在鼠标点击完成后发生</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/BA-JS-Object-protoType-Link-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1915,129 +2336,6 @@ tips:以及已经存在的函数方法  会有function 类型
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/Hexo-deploy-fun/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeeywBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/07/Hexo-deploy-fun/" itemprop="url">easy_Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T13:01:51+08:00">
-                2019-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Hexo在github上的部署方法"><a href="#Hexo在github上的部署方法" class="headerlink" title="Hexo在github上的部署方法"></a><em>Hexo在github上的部署方法</em></h3><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h3 id="1-GitHub配置"><a href="#1-GitHub配置" class="headerlink" title="1. GitHub配置"></a>1. GitHub配置</h3><h3 id="2-Hexo配置"><a href="#2-Hexo配置" class="headerlink" title="2. Hexo配置"></a>2. Hexo配置</h3><h3 id="3-初始配置成功后再次创建博客"><a href="#3-初始配置成功后再次创建博客" class="headerlink" title="3. 初始配置成功后再次创建博客"></a>3. 初始配置成功后再次创建博客</h3><h3 id="4-注意"><a href="#4-注意" class="headerlink" title="4. 注意"></a>4. 注意</h3><h3 id="5-主题设置"><a href="#5-主题设置" class="headerlink" title="5. 主题设置"></a>5. 主题设置</h3><h2 id="1-Github配置"><a href="#1-Github配置" class="headerlink" title="1. Github配置"></a>1. Github配置</h2><h3 id="创建一个名字为：你的github用户名-github-io-的仓库"><a href="#创建一个名字为：你的github用户名-github-io-的仓库" class="headerlink" title="创建一个名字为：你的github用户名.github.io 的仓库"></a>创建一个名字为：<em>你的github用户名.github.io</em> 的仓库</h3><h3 id="若不会创建github-详见我如何创建github博客"><a href="#若不会创建github-详见我如何创建github博客" class="headerlink" title="若不会创建github 详见我如何创建github博客"></a>若不会创建github 详见我如何创建github博客</h3><h2 id="2-Hexo配置-1"><a href="#2-Hexo配置-1" class="headerlink" title="2. Hexo配置"></a>2. Hexo配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. mkdir repo _(repo可以是任意名字)_</span><br><span class="line">2. cd 到repo</span><br><span class="line">3. npm install -g hexo-cli _安装 Hexo_</span><br><span class="line">4. hexo init myBlog _初始化一个博客myBlog为你的项目名称，（可以为任意名称）_</span><br><span class="line">5. cd myBlog</span><br><span class="line">6. npm i</span><br><span class="line">7. hexo new 大吉大利，今天开博  _new出你的博客，这个时候你会看到一个md文件_</span><br><span class="line">8. start source/_post/开博大吉.md *edit你的博客，语法详见我第四篇博客*</span><br><span class="line">9. start _config.yml，编辑网站配置</span><br><span class="line">*    把第 6 行的 title 改成你想要的名字</span><br><span class="line">+    把第 9 行的 author 改成你的大名</span><br><span class="line">-    把最后一行的 type 改成 type: git</span><br><span class="line">*    在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，</span><br><span class="line">+    仓库地址以 git@github.com: 开头你知道吧？不知道？不知道的话现在你知道了）</span><br><span class="line">-    第 4 步的 repo: 后面有个空格，不要眼瞎。</span><br><span class="line">10. npm install hexo-deployer-git --save _安装 git 部署插件_</span><br><span class="line">11. hexo deploy _部署_</span><br></pre></td></tr></table></figure>
-<h3 id="12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接"><a href="#12-进入「你的用户名-github-io」对应的-repo，打开-GitHub-Pages-功能，如果已经打开了，你应该会看到一个预览链接" class="headerlink" title="12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接"></a>12. 进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，你应该会看到一个预览链接</h3><h3 id="13-访问这个连接，访问成功！"><a href="#13-访问这个连接，访问成功！" class="headerlink" title="13. 访问这个连接，访问成功！"></a>13. 访问这个连接，访问成功！</h3><hr>
-<h2 id="3-初始配置成功后再次创建博客-1"><a href="#3-初始配置成功后再次创建博客-1" class="headerlink" title="3.初始配置成功后再次创建博客"></a>3.初始配置成功后再次创建博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 1. hexo new 第二篇博客</span><br><span class="line">### 2. start 第二篇博客路径(相对绝对都ok)</span><br><span class="line">### 3. hexo generate  _生成_</span><br><span class="line">### 4. hexo deploy    _部署_</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="4-注意-1"><a href="#4-注意-1" class="headerlink" title="4. 注意"></a>4. 注意</h2><h1 id="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】"><a href="#注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator-名称任意-的仓库，用来保存myBlog里面的【生成博客的程序代码】" class="headerlink" title="注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】"></a>注意！你保存的只是你的博客，并没有保存【生成博客的代码】，你需要再创建一个blog-generator(名称任意)的仓库，用来保存myBlog里面的【生成博客的程序代码】</h1><h1 id="如何创建一个新仓库详见我-如何玩转github仓库-博客"><a href="#如何创建一个新仓库详见我-如何玩转github仓库-博客" class="headerlink" title="如何创建一个新仓库详见我[如何玩转github仓库]博客"></a>如何创建一个新仓库详见我[如何玩转github仓库]博客</h1><h2 id="5-主题设置-1"><a href="#5-主题设置-1" class="headerlink" title="5.主题设置"></a>5.主题设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="line">随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https://github.com/iissnan/hexo-theme-next</span><br><span class="line">复制它的 SSH 地址或 HTTPS 地址，假设地址为 git@github.com:iissnan/hexo-theme-next.git</span><br><span class="line">cd themes</span><br><span class="line">git clone git@github.com:iissnan/hexo-theme-next.git</span><br><span class="line">cd ..</span><br><span class="line">将 _config.yml 的第 75 行改为 theme: hexo-theme-next，保存</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line">等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 1 步，重选一个主题。</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2088,7 +2386,7 @@ tips:以及已经存在的函数方法  会有function 类型
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
