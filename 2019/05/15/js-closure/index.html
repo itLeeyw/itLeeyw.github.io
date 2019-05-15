@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="理解JavaScript闭包？首先理解变量的作用域 变量的作用域无非两种   全局变量  global 局部变量  local  tips: 里提到一个小知识使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象。 使用let声明的变量，其作用域为该语句所在的函数代码块内，不存在变量提升的现象 使用const声明的是常量，在后面出现的代码中不能再修改该常量的值   而JavaScr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/07/hello-world/index.html">
+<meta property="og:title" content="js-closure">
+<meta property="og:url" content="http://yoursite.com/2019/05/15/js-closure/index.html">
 <meta property="og:site_name" content="LeeywBlog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="理解JavaScript闭包？首先理解变量的作用域 变量的作用域无非两种   全局变量  global 局部变量  local  tips: 里提到一个小知识使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象。 使用let声明的变量，其作用域为该语句所在的函数代码块内，不存在变量提升的现象 使用const声明的是常量，在后面出现的代码中不能再修改该常量的值   而JavaScr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-07T04:40:02.738Z">
+<meta property="og:updated_time" content="2019-05-15T15:31:53.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="js-closure">
+<meta name="twitter:description" content="理解JavaScript闭包？首先理解变量的作用域 变量的作用域无非两种   全局变量  global 局部变量  local  tips: 里提到一个小知识使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象。 使用let声明的变量，其作用域为该语句所在的函数代码块内，不存在变量提升的现象 使用const声明的是常量，在后面出现的代码中不能再修改该常量的值   而JavaScr">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/07/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/15/js-closure/">
 
 
 
 
 
-  <title>Hello World | LeeywBlog</title>
+  <title>js-closure | LeeywBlog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/js-closure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leeyw">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">js-closure</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T12:40:02+08:00">
-                2019-03-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T23:31:16+08:00">
+                2019-05-15
               </time>
             
 
@@ -299,15 +299,108 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="理解JavaScript闭包？"><a href="#理解JavaScript闭包？" class="headerlink" title="理解JavaScript闭包？"></a>理解JavaScript闭包？</h1><h2 id="首先理解变量的作用域"><a href="#首先理解变量的作用域" class="headerlink" title="首先理解变量的作用域"></a>首先理解变量的作用域</h2><blockquote>
+<p>变量的作用域无非两种</p>
+</blockquote>
+<ul>
+<li>全局变量  global</li>
+<li>局部变量  local</li>
+</ul>
+<h3 id="tips-里提到一个小知识"><a href="#tips-里提到一个小知识" class="headerlink" title="tips: 里提到一个小知识"></a>tips: 里提到一个小知识</h3><pre><code>使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象。
+使用let声明的变量，其作用域为该语句所在的函数代码块内，不存在变量提升的现象
+使用const声明的是常量，在后面出现的代码中不能再修改该常量的值
+</code></pre><blockquote>
+<ol>
+<li><p>而JavaScript的语法中，函数内部可以直接读取全局变量</p>
+</li>
+<li><p>另一方面，函数外部自然无法读取函数内部的局部变量</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ul>
+<li><u>需要注意的是，函数内部声明变量的时候，一定要使用var命令，如果不用的话，你实际上是声明了一个全局变量</u></li>
+</ul>
+</blockquote>
+<pre><code>function f1(){
+   n=999;
+ }　　
+ f1();　　
+ alert(n); // 999
+</code></pre><h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><blockquote>
+<p>由于项目需求，我们可能需要得到函数内的局部变量，但是在正常情况下这是做不到的。所以只能通过变通的方法实现。</p>
+</blockquote>
+<blockquote>
+<p>在函数的内部再定义一个函数</p>
+</blockquote>
+<pre><code>function f1(){
+
+     var n=999;
+
+     function f2(){
+       alert(n); // 999
+     }
+
+   }
+</code></pre><blockquote>
+<p>上面是一个标准的JavaScript特有的 <strong>“链式作用域”</strong> 结构chain scope） ，子对象会一级一级的向父级对象寻找所有的变量       </p>
+</blockquote>
+<ul>
+<li><p>既然f2可以读取到f1的变量，辣么，只要把f2作为返回值，我们不久可以再外部读取它的内部变量的吗？</p>
+<pre><code>function f1(){
+  var n=999;
+  function f2(){
+    alert(n); 
+  }　　　　
+  return f2;
+  }　　
+  var result=f1();
+  result(); // 999
+</code></pre></li>
+</ul>
+<h3 id="闭包的概念。"><a href="#闭包的概念。" class="headerlink" title="闭包的概念。"></a>闭包的概念。</h3><blockquote>
+<ol>
+<li>f2 就是闭包</li>
+<li>闭包：能读取其他函数内部(局部)变量的函数</li>
+<li>JavaScript中，只有函数内部的子函数能读取到局部变量，所以可以把闭包理解为：定义在函数内部的函数</li>
+<li>闭包是函数内部以及外部链接的桥梁</li>
+</ol>
+</blockquote>
+<h3 id="闭包的作用？"><a href="#闭包的作用？" class="headerlink" title="闭包的作用？"></a>闭包的作用？</h3><blockquote>
+<ol>
+<li>可以读取函数内部的变量</li>
+<li>让这些变量的值始终保持在内存中。</li>
+</ol>
+</blockquote>
+<pre><code>function f1(){
+  var n=999;　　　
+  nAdd=function(){
+  n+=1
+    }　　　　
+  function f2(){
+      alert(n);
+  }　　　　
+ return f2;　
+ }　　
+var result=f1();　　
+result(); // 999　
+nAdd();　　
+result(); // 10000
+</code></pre><h3 id="闭包的运行逻辑-个人理解，并不确定是否正确：路子野"><a href="#闭包的运行逻辑-个人理解，并不确定是否正确：路子野" class="headerlink" title="闭包的运行逻辑(个人理解，并不确定是否正确：路子野)"></a>闭包的运行逻辑(个人理解，并不确定是否正确：路子野)</h3><ol>
+<li>function a(){ n = 1; function a1(){ console.log(“hello”)} return a1}</li>
+<li>b = a() c = a() //声明a函数 且赋值a()赋值于b,c变量</li>
+<li>此时会再次生成两个内存空间存放b,c的闭包函数(a1)</li>
+<li>由于a’.a1以及a’’.a1的存在也就是b,c的存在所以a’ 以及 a’’ 并不会被gc（辣鸡回收）</li>
+<li>将内部变量保存在其中</li>
+</ol>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<li><p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+</li>
+<li><p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
+</li>
+<li><p>调用你的是WHO？</p>
+</li>
+</ol>
 
       
     </div>
@@ -332,15 +425,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/14/mobile-first-response-design/" rel="next" title="mobile-first-response-design">
+                <i class="fa fa-chevron-left"></i> mobile-first-response-design
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/我开博啦/" rel="prev" title="我开博啦~">
-                我开博啦~ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#理解JavaScript闭包？"><span class="nav-number">1.</span> <span class="nav-text">理解JavaScript闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先理解变量的作用域"><span class="nav-number">1.1.</span> <span class="nav-text">首先理解变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tips-里提到一个小知识"><span class="nav-number">1.1.1.</span> <span class="nav-text">tips: 里提到一个小知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何从外部读取局部变量？"><span class="nav-number">1.2.</span> <span class="nav-text">如何从外部读取局部变量？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的概念。"><span class="nav-number">1.2.1.</span> <span class="nav-text">闭包的概念。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用？"><span class="nav-number">1.2.2.</span> <span class="nav-text">闭包的作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的运行逻辑-个人理解，并不确定是否正确：路子野"><span class="nav-number">1.2.3.</span> <span class="nav-text">闭包的运行逻辑(个人理解，并不确定是否正确：路子野)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.2.4.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
