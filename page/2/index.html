@@ -229,6 +229,372 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/easy-Css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/07/easy-Css/" itemprop="url">easy-Css</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T22:50:20+08:00">
+                2019-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="easy-Css"><a href="#easy-Css" class="headerlink" title="easy-Css"></a><strong>easy-Css</strong></h1><h4 id="Cascading-Sytle-Sheets"><a href="#Cascading-Sytle-Sheets" class="headerlink" title="Cascading Sytle Sheets"></a>Cascading Sytle Sheets</h4><h4 id="层叠样式表"><a href="#层叠样式表" class="headerlink" title="层叠样式表"></a>层叠样式表</h4><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a><em>目录</em></h1><h3 id="1-几种CSS的引入方式"><a href="#1-几种CSS的引入方式" class="headerlink" title="1.几种CSS的引入方式"></a>1.几种CSS的引入方式</h3><h3 id="2-a标签踩坑"><a href="#2-a标签踩坑" class="headerlink" title="2. a标签踩坑"></a>2. a标签踩坑</h3><h3 id="3-float的魅力"><a href="#3-float的魅力" class="headerlink" title="3. float的魅力"></a>3. float的魅力</h3><h3 id="4-CSS的常用单位"><a href="#4-CSS的常用单位" class="headerlink" title="4. CSS的常用单位"></a>4. CSS的常用单位</h3><h3 id="5-CSS布局问题"><a href="#5-CSS布局问题" class="headerlink" title="5. CSS布局问题"></a>5. CSS布局问题</h3><h3 id="end-tips"><a href="#end-tips" class="headerlink" title="end tips"></a>end tips</h3><blockquote>
+<h4 id="做前端啊，要回使用各种测量工具-QQ截图，colorpix-FSCapture"><a href="#做前端啊，要回使用各种测量工具-QQ截图，colorpix-FSCapture" class="headerlink" title="做前端啊，要回使用各种测量工具,QQ截图，colorpix,FSCapture.."></a>做前端啊，要回使用各种测量工具,QQ截图，colorpix,FSCapture..</h4></blockquote>
+<hr>
+<h3 id="1-几种CSS的引入方式-1"><a href="#1-几种CSS的引入方式-1" class="headerlink" title="1. 几种CSS的引入方式"></a>1. 几种CSS的引入方式</h3><ol>
+<li>直接在标签内写（已经被淘汰）<br><code>&lt;body bgcolor=&quot;grey&quot;&gt;第一种&lt;/body&gt;</code></li>
+<li><p>使用style属性<br><code>&lt;body style=&quot;background-color:grey&quot;&gt;第二种&lt;/body&gt;</code><br>3.使用style标签 内联</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        body&#123;</span><br><span class="line">        background-color:grey;</span><br><span class="line">        color:red;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>link标签 外联<br><code>&lt;link rel=&quot;stylesheet&quot; href=&#39;外联样式表路径，绝对相对路径都行&#39;&gt;</code></p>
+</li>
+<li><p>CSS样式表引入其他CSS样式表<br><code>@import url(路径)；</code></p>
+</li>
+</ol>
+<h3 id="2-a标签踩坑-1"><a href="#2-a标签踩坑-1" class="headerlink" title="2. a标签踩坑"></a>2. a标签踩坑</h3><h5 id="取消下划线"><a href="#取消下划线" class="headerlink" title="+ 取消下划线"></a>+ 取消下划线</h5><p><code>text-decoration = none;</code></p>
+<h3 id="3-float的魅力-1"><a href="#3-float的魅力-1" class="headerlink" title="3. float的魅力"></a>3. float的魅力</h3><h5 id="float的BUG"><a href="#float的BUG" class="headerlink" title="+ float的BUG"></a>+ float的BUG</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    在爸爸爸爸类属性元素上面添加</span><br><span class="line">    </span><br><span class="line">.clearfix::after&#123;</span><br><span class="line">content: &apos;&apos;;</span><br><span class="line">display: block;</span><br><span class="line">clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在儿子元素上面添加你需要的flat就ok了</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-CSS的常用单位-1"><a href="#4-CSS的常用单位-1" class="headerlink" title="4. CSS的常用单位"></a>4. CSS的常用单位</h3><h4 id="1-px-像素"><a href="#1-px-像素" class="headerlink" title="1. px 像素"></a>1. px 像素</h4><h4 id="2-em-相对长度单位"><a href="#2-em-相对长度单位" class="headerlink" title="2. em 相对长度单位"></a>2. em 相对长度单位</h4><pre><code>1. &gt; em的大小不是固定的
+2. &gt; em是继承与父级元素size 
+</code></pre><blockquote>
+<p>任意浏览器的默认字体高都是16px=1em(未经过调整);<br>12px = 0.75em 10px = 0.625em;</p>
+</blockquote>
+<h4 id="3-rem-CSS新增的相对单位（相对根元素）"><a href="#3-rem-CSS新增的相对单位（相对根元素）" class="headerlink" title="3. rem CSS新增的相对单位（相对根元素）"></a>3. rem CSS新增的相对单位（相对根元素）</h4><blockquote>
+<ul>
+<li>对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 。   </li>
+<li>对于需要适配各种移动设备，使用rem，例如只需要适配iPhone和iPad等分辨率差别比较挺大的设备。</li>
+</ul>
+</blockquote>
+<h4 id="4-宽泛的讲是对于父级元素的比例"><a href="#4-宽泛的讲是对于父级元素的比例" class="headerlink" title="4. % 宽泛的讲是对于父级元素的比例"></a>4. % 宽泛的讲是对于父级元素的比例</h4><blockquote>
+<ol>
+<li>对于普通定位元素就是我们理解的父元素</li>
+<li>对于position: absolute;的元素是相对于已定位的父元素</li>
+<li>对于position: fixed;的元素是相对于ViewPort（可视窗口)</li>
+</ol>
+</blockquote>
+<h4 id="5-vw"><a href="#5-vw" class="headerlink" title="5. vw"></a>5. vw</h4><blockquote>
+<p>css3新单位，viewpoint width的缩写，视窗宽度，1vw等于视窗宽度的1%。举个例子：浏览器宽度1200px, 1 vw = 1200px/100 = 12 px。</p>
+</blockquote>
+<h4 id="6-vh"><a href="#6-vh" class="headerlink" title="6. vh"></a>6. vh</h4><blockquote>
+<p>css3新单位，viewpoint height的缩写，视窗高度，1vh等于视窗高度的1%。举个例子：浏览器高度900px, 1 vh = 900px/100 = 9 px</p>
+</blockquote>
+<h4 id="7-vm"><a href="#7-vm" class="headerlink" title="7. vm"></a>7. vm</h4><blockquote>
+<p>css3新单位，相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vm举个例子：浏览器高度900px，宽度1200px，取最小的浏览器高度，1 vm = 900px/100 = 9 px。</p>
+</blockquote>
+<h3 id="5-CSS布局问题（超大量图文警告）"><a href="#5-CSS布局问题（超大量图文警告）" class="headerlink" title="5. CSS布局问题（超大量图文警告）"></a>5. CSS布局问题（超大量图文警告）</h3><blockquote>
+<h4 id="css的水平对齐-amp-垂直对齐问题一直是让人摸不着头脑的知识，这一章节将让你深入了解css的对齐方法"><a href="#css的水平对齐-amp-垂直对齐问题一直是让人摸不着头脑的知识，这一章节将让你深入了解css的对齐方法" class="headerlink" title="css的水平对齐&amp;垂直对齐问题一直是让人摸不着头脑的知识，这一章节将让你深入了解css的对齐方法"></a>css的水平对齐&amp;垂直对齐问题一直是让人摸不着头脑的知识，这一章节将让你深入了解css的对齐方法</h4></blockquote>
+<h4 id="1-将会用到的关键字"><a href="#1-将会用到的关键字" class="headerlink" title="1. 将会用到的关键字"></a>1. 将会用到的关键字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. margin 外边距</span><br><span class="line">2. padding 内边距</span><br><span class="line">3. auto  自动</span><br><span class="line">4. top   上</span><br><span class="line">5. right 右</span><br><span class="line">6. bottom   下</span><br><span class="line">7. left  左</span><br><span class="line">8. float 浮动</span><br><span class="line">9. table 表单</span><br><span class="line">10. position 定位</span><br><span class="line">11. relative  相对定位</span><br><span class="line">12. absolute 绝对定位</span><br><span class="line">12.5. fixed 固定定位</span><br><span class="line">13. box-sizing 盒子样式</span><br><span class="line">14. border-box 边框盒子 /具体可以在本篇博客收到具体解释</span><br><span class="line">15. conten-box 内容盒子 /具体同上</span><br><span class="line">16. display 陈列关键字</span><br><span class="line">17. flex 伸缩模型</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h5 id="2-两栏布局理解以及具体实现方法"><a href="#2-两栏布局理解以及具体实现方法" class="headerlink" title="2.两栏布局理解以及具体实现方法"></a>2.两栏布局理解以及具体实现方法</h5><blockquote>
+<p>两个盒子平行布局</p>
+</blockquote>
+<h5 id="原样式"><a href="#原样式" class="headerlink" title="原样式"></a>原样式</h5><p>   <img src="https://i.loli.net/2019/03/14/5c89e19b3ef58.png" alt="原样"></p>
+<h5 id="float-实现"><a href="#float-实现" class="headerlink" title="float 实现"></a>float 实现</h5><p>   <img src="https://i.loli.net/2019/03/14/5c89e24ac81a4.png" alt="float"></p>
+<ul>
+<li><h4 id="这里要注意，float实现会导致元素错位和坍塌（如何解决）"><a href="#这里要注意，float实现会导致元素错位和坍塌（如何解决）" class="headerlink" title="这里要注意，float实现会导致元素错位和坍塌（如何解决）"></a>这里要注意，float实现会导致元素错位和坍塌（如何解决）</h4><p><img src="https://i.loli.net/2019/03/14/5c89e795d2331.png" alt="坍塌问题"></p>
+</li>
+</ul>
+<blockquote>
+<h5 id="2-绝对定位"><a href="#2-绝对定位" class="headerlink" title="2.绝对定位"></a>2.绝对定位</h5></blockquote>
+<p><img src="https://i.loli.net/2019/03/14/5c89e88d220ea.png" alt="绝对定位">   </p>
+<ul>
+<li><h4 id="相对定位和绝对定位是什么？"><a href="#相对定位和绝对定位是什么？" class="headerlink" title="相对定位和绝对定位是什么？"></a>相对定位和绝对定位是什么？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通常情况下 position 的默认值是static,就是没有定位。</span><br><span class="line">如果设置了position 其他属性那么就会脱离文档流</span><br><span class="line">则可以通过left top right bottom等操作进行对元素块的控制</span><br><span class="line"># 一般来说只有设置了position 才可以使用 top left等操作，z-index也无法生效</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<h5 id="相对定位-raletive"><a href="#相对定位-raletive" class="headerlink" title="相对定位 raletive"></a>相对定位 raletive</h5><ul>
+<li><blockquote>
+<h6 id="相对定位并不脱离文档流"><a href="#相对定位并不脱离文档流" class="headerlink" title="相对定位并不脱离文档流"></a>相对定位并不脱离文档流</h6><p>  一般两个配合使用，但是也可以单独使用，需要注意的是，raletive在进行元素偏移以后仍然占据没有偏移之前的空间，（偏移不是边距，相当于∪）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/14/5c8a303ebed7f.png" alt="相对定位.PNG"></p>
+<blockquote>
+<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
+<li><blockquote>
+<p>绝对定位脱离文档流</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在布置文档流中文件时，绝对定位元素不会占据空间。</span><br><span class="line">绝对定位元素相对于最近的非static祖先元素做绝对定位，当这样的祖先元素不存在的时候，则相对ICB(initel container block 初始包含块)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/03/14/5c8a33ade5f1a.png" alt="捕获.PNG"></p>
+<h4 id="2-三栏布局"><a href="#2-三栏布局" class="headerlink" title="2. 三栏布局"></a>2. 三栏布局</h4><blockquote>
+<p>一般为两边固定，中间自适应</p>
+<ul>
+<li><blockquote>
+<ol>
+<li>使用margin手动自适应 -_-||<br><img src="https://i.loli.net/2019/03/14/5c8a373c80bfa.png" alt="margin.PNG"></li>
+</ol>
+</blockquote>
+</li>
+<li><blockquote>
+<ol start="2">
+<li>使用左右栏浮动的方法再进行margin</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/14/5c8a396e67cee.png" alt="左右栏浮动.PNG"></p>
+<ul>
+<li><blockquote>
+<ol start="3">
+<li>使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex" target="_blank" rel="noopener">flex</a>布局实现（弹性盒子） </li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/03/14/5c8a397580481.png" alt="flex.PNG"></p>
+<ul>
+<li><blockquote>
+<ol start="4">
+<li>使用table布局(将容器变为单元格子table-cell)</li>
+</ol>
+<ul>
+<li>高度由文档流决定<br><img src="https://i.loli.net/2019/03/14/5c8a3a68e5c4b.png" alt="捕获.PNG"></li>
+</ul>
+</blockquote>
+</li>
+<li><blockquote>
+<ol start="5">
+<li>使用gird布局（设置行高和列，与table有异曲同工之处）</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/03/14/5c8a3b4b28254.png" alt="gird布局.PNG"></p>
+<ul>
+<li><blockquote>
+<ol start="6">
+<li>圣杯布局<blockquote>
+<ul>
+<li>圣杯布局和双飞翼布局 实现的都是三栏布局，两边的盒子宽度固定，中间盒子自适应</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><blockquote>
+<ol start="7">
+<li>双飞翼布局 (用的少，直接用flex就ok了 以后去面试的时候可以背一下~)</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献:"></a>参考文献:</h1><p><a href="https://blog.csdn.net/ganyingxie123456/article/details/77054124" target="_blank" rel="noopener">详解七种CSS布局方法</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position" target="_blank" rel="noopener">position mdn</a><br><a href="https://developer.mozilla.org/zh-CN/docs/CSS/float" target="_blank" rel="noopener">float mdn</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex" target="_blank" rel="noopener">flex mdn</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table" target="_blank" rel="noopener">table mdn</a></p>
+<hr>
+<h3 id="end-tips-很杂，随便看看"><a href="#end-tips-很杂，随便看看" class="headerlink" title="end-tips(很杂，随便看看)"></a>end-tips(很杂，随便看看)</h3><pre><code>&gt;  Q:  Html会把span之间所有的回车变成一个空格
+        A:  放到同一行就完事啦~ 如果需要空格就加个margin嘛~
+
+&gt; Q:   Body会默认有一个外边距
+        A:  干掉他，margin:0;
+
+&gt; Q:  padding是啥 咋用？
+        A:  padding是元素内边距
+        padding:上(top) 右(right) 下(bottom) 左(left);
+        或者分开使用padding-top:20px;
+
+&gt; Q:   活用透明元素，虽然你看不见我，但我确实存在噢
+        A:   border-top: 3px solid transparent;(举例不唯一)
+
+&gt; Q: 一个元素的高度是由什么决定的？
+        A  : 是由内容决定
+        tips:div 高度由其内部文档流元素的高度总和决定
+
+       Q   : 文档流是什么？
+            A: 文档内元素的流动方向
+            tips:内联元素&lt;span&gt;从左往右流动，块级元素&lt;div&gt;从上往下流动
+
+&gt; Q: 前端怎么调试
+        A：border
+
+&gt;Q : 不同于汉字，英文是无法自动换行的。那么我们如何在标签中实现同一个长单词的自动换行呢？
+    A: word-break:break-all;(释：打断所有，把单词全部打断)
+
+
+&gt;Q : font-size:100px;到底是什么?
+       A: 文本内容基线最高和最低的宽度，为100px
+
+&gt;Q : 为什么我的字体100px，但行高却不是这么多呢？
+        A：浏览器会有一个建议行高，有的是1.4有的是1.21倍（跟字体有关，同样的字号，即便固定死了行高，也会有建议行高不同的情况）
+
+&gt;Q: 如果不同的span在同一个div下div的行高会怎样。
+        A：以最大span建议行高为基本
+
+&gt;Q: 前端中span字体怎么对齐
+        A: 默认基线对齐，四线谱~
+
+&gt;Q：如何避免以上这些关于行高的蠢问题？
+        A: line-height设大一点（比内联的任何元素行高都大），字体选择一样的
+
+&gt;Q:咱宽高老是出问题 咋办？
+    A:没事别设置height和width 100%和固定宽高，BUG的根源啊喂！QAQ
+
+&gt;Q: 居中好难鸭  有啥子简单方法咩？
+       A:  margin-left:auto;
+        margin-right:auto;
+        /*so easy*/
+
+&gt;Q:  为啥我span设置了宽高但是没效果鸭？
+       A:  span不能改变宽高啊笨蛋！！
+       Q: 那可咋整啊？？？？？
+            A: 你可以把他设置成可以调整宽高的样子嘛~
+                display:inner-block;
+
+&gt;Q:我这样设置宽高并且垂直水平居中 感觉自己贼厉害!!
+
+                width: 70px;
+                height: 29px;
+                line-height: 29px;
+                text-align: center;
+      A: 新手!  看我
+
+            padding: 4px 16.5px;  流弊不流弊
+            但是由于机器不同，所以我们还是需要明确一下
+            line-height:XXpx;
+
+&gt;Q: 如何尽量避免BUG???
+    A: 尽量避免写宽高这两个奇怪的东西，我们由内向外来控制大小
+    padding margin
+
+
+&gt;Q: position里面fixed和absolute有什么区别鸭！？
+        A:fixed 相对于网页窗口绝对定位
+          absolute 相对于离自己最近的relative祖先绝对定位
+
+&gt;Q:  为啥我float以后感jio我有些地方变窄了？
+        A:  因为float会默认压缩鸭
+
+&gt;Q: border-box和content-box有什么区别鸭？
+        A:  border-box 是包含padding,margin border的和的面积
+            content-box 真正的面积是不把padding margin border包含在内容中的大小
+&gt;Q: 为啥我的内联元素在下设置了padding 和 margin 依然没有得到我想要的效果？
+        A: 因为内联元素不是block 只能设置padding的左右间距不能改变上下，必须要设display:inline-block才能撑起来
+           内联元素无法通过margin 0px auto；来达到居中效果，必须使用到他的父标签,在父标签上设置text-align:center才能实现居中
+
+&gt;Q：我想对所有的动画效果有一个延时进行 怎么办?
+        A: transition: all Xs;
+
+&gt;Q: 如何将文字光标改成指针光标？
+       A:  cursor: pointer;
+
+&gt;Q: 我对内联元素使用了display:inline-block;以后bottom会多出一小截距离咋办？
+       A: 这是bug 我们可以使用vertical-align:top；来解决这个bug(有时候也不会出现这种bug)
+&gt;Q: 为什么我的body 无法占满屏幕 有间距
+       A: 因为这是body自带的8像素margin
+</code></pre><p><img src="https://i.loli.net/2019/03/11/5c85edd2eafdc.png" alt="border-box" title="border-box"></p>
+<p><img src="https://i.loli.net/2019/03/11/5c85edf40bfd5.png" alt="content-box" title="content-box"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/easy-Html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1173,7 +1539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
