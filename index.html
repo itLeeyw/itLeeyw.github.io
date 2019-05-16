@@ -229,6 +229,233 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/HTTP-StatusCode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/16/HTTP-StatusCode/" itemprop="url">HTTP-StatusCode</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T20:58:28+08:00">
+                2019-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP　状态码"></a>HTTP　状态码</h2><blockquote>
+<p>　Ｓｔａｔｕｓ－ｃｏｄｅ为服务器的返回值，是用３个数字来表示，第一个数字是作为状态码的分类，后两位数字只做类别再次细分不做大类分别</p>
+</blockquote>
+<ol>
+<li><p>1XX:信息(Informational)</p>
+<blockquote>
+<p>请求已经收到，请求过程正在继续</p>
+</blockquote>
+<ul>
+<li><p>100 Continue</p>
+<blockquote>
+<p>Client 应当继续等待请求，这个是Server端的临时状态，用于通知服务端</p>
+</blockquote>
+</li>
+<li><p>101 Switching Protocols</p>
+<blockquote>
+<p>请求者已要求服务器切换协议，服务器已确认并准备切换。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>2XX:成功(Success)</p>
+<blockquote>
+<p>请求成功，被服务器理解并允许访问</p>
+</blockquote>
+<ul>
+<li><p>200 OK</p>
+<blockquote>
+<p>服务器已成功处理了请求，表示服务器提供了被请求的网页。</p>
+</blockquote>
+</li>
+<li><p>201 Create</p>
+<blockquote>
+<p>请求成功并且创建了新的资源</p>
+</blockquote>
+</li>
+<li><p>202 Accepted</p>
+<blockquote>
+<p>Server已接受请求，但尚未处理，也可能请求的是Server有意拒绝的服务，导致请求失败。</p>
+</blockquote>
+</li>
+<li><p>204 No Content</p>
+<blockquote>
+<p>请求到了 但服务器没有返回内容</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>3XX:重定向(Readirecion)</p>
+<blockquote>
+<p>必须进一步的采取行动操作才能完成请求</p>
+</blockquote>
+<ul>
+<li>304 Not Modified<blockquote>
+<p>表示请求后但资源暂未被修改</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>4XX:客户端错误(Client Error)</p>
+<blockquote>
+<p>请求失败，语法错误或某些操作无法完成</p>
+</blockquote>
+<ul>
+<li><p>400 Bad Request</p>
+<blockquote>
+<p>请求过程中，语法格式错误(域验证错误，缺少数据等</p>
+</blockquote>
+</li>
+<li><p>401 Unauthorized </p>
+<blockquote>
+<p> 没有被授权访问，需要用户身份验证，与403 Forbidden类似，但特别适用于可能进行身份验证但已失败或尚未提供的情况。响应必须包含WWW-Authenticate头字段，其中包含适用于所请求资源的讯息</p>
+</blockquote>
+</li>
+<li><p>403 Forbidden</p>
+<blockquote>
+<p>服务器理解请求(请求合法)，但拒绝。与401不同的是这与授权验证无关，若不希望将此页面信息交给用户，则可以使用404status code</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>*  404 Not Found
+    &gt; 服务器没有找到Requests-URI匹配的任何内容，不确定是永久性或是暂时性，服务器可以通过一些配置告知客户端旧资源是不可见且无重定向地址，则我们可以使用410(Gone)状态码
+    &gt; 
+    &gt; 服务器若不希望确切说明请求被拒绝原因时或没有其他相应适用的时候常用此状态码 
+</code></pre><ul>
+<li>409 Conflict<blockquote>
+<p>服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li><p>5XX:服务器错误(Server Error)</p>
+<blockquote>
+<p>服务器并未能完成一个明显(合法)的请求</p>
+</blockquote>
+<ul>
+<li>500 Internal Server Error<blockquote>
+<p>  服务器内部错误）  服务器遇到错误，无法完成请求。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://www.restapitutorial.com/httpstatuscodes.html" target="_blank" rel="noopener">参考1</a><br><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">维基百科</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/js-call-apply-bind/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2613,196 +2840,6 @@ person1.constructor.name
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/easy-JavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeeywBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/07/easy-JavaScript/" itemprop="url">easy-JavaScript</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T22:50:35+08:00">
-                2019-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="easy-js"><a href="#easy-js" class="headerlink" title="easy-js"></a>easy-js</h1><p>#easy-javascript</p>
-<blockquote>
-<h5 id="code"><a href="#code" class="headerlink" title="code"></a><script>code</script></h5></blockquote>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-第一个导航页面案例"><a href="#1-第一个导航页面案例" class="headerlink" title="1. 第一个导航页面案例"></a>1. 第一个导航页面案例</h3><h3 id="2-监听事件"><a href="#2-监听事件" class="headerlink" title="2. 监听事件"></a>2. 监听事件</h3><h3 id="3-js的七大类型"><a href="#3-js的七大类型" class="headerlink" title="3. js的七大类型"></a>3. js的七大类型</h3><h3 id="end-tips"><a href="#end-tips" class="headerlink" title="end. tips"></a>end. tips</h3><h3 id="1-第一个导航页面案例-1"><a href="#1-第一个导航页面案例-1" class="headerlink" title="1. 第一个导航页面案例"></a>1. 第一个导航页面案例</h3><blockquote>
-<h5 id="需要用到的一些函数"><a href="#需要用到的一些函数" class="headerlink" title="需要用到的一些函数"></a>需要用到的一些函数</h5><pre><code>1. console.log() 打印 排错校验神器
-2. while 循环 没什么好讲的
-3. 字典与数组  没什么好讲的
-4. document 文档 JavaScript常用函数方法
-5. 通过给标签设置id在JavaScript中对标签进行操作
-6. onkeypress 从键盘在document中输入数据后，获取所有键入值
-7. location.href   当前页面链接 （可通过事件改写 进行跳转页面操作）
-8. window.open(href)  从新窗口中打开网页
-</code></pre></blockquote>
-<h3 id="2-监听事件-1"><a href="#2-监听事件-1" class="headerlink" title="2. 监听事件"></a>2. 监听事件</h3><blockquote>
-<h5 id="监听鼠标"><a href="#监听鼠标" class="headerlink" title="监听鼠标"></a>监听鼠标</h5><p>···</p>
-</blockquote>
-<pre><code>//监听鼠标按下
-document.onmousedown = function(x){
-    console.log(x)
-}
-
-//监听鼠标移动
-document.onmousemove = function(x){
-    console.log(x)
-}
-
-//监听松开鼠标
-document.onmouseup = function(x){
-    console.log(x)
-}
-
-//监听鼠标点击某个对象
-obj.onclick = function(x){
-    console.log(x)
-}
-</code></pre><p>···</p>
-<blockquote>
-<h5 id="监听键盘"><a href="#监听键盘" class="headerlink" title="监听键盘"></a>监听键盘</h5><p>···</p>
-</blockquote>
-<pre><code>//监听键盘按下某个键
-document.onkeypress = function(x){
-    console.log(x)
-}
-</code></pre><p>···</p>
-<blockquote>
-<h5 id="监听错误"><a href="#监听错误" class="headerlink" title="监听错误"></a>监听错误</h5><p>···</p>
-</blockquote>
-<pre><code>//监听某个对象的错误信息
-obj.onerror = function(x){
-    console.log(x)
-}
-</code></pre><p>···</p>
-<h3 id="3-JS的七大类型"><a href="#3-JS的七大类型" class="headerlink" title="3. JS的七大类型"></a>3. JS的七大类型</h3><pre><code>1.number(数值类型)
-
-2.string(用单双引号括起来)
-
-3.undefined(常用于变量，可直接赋值于变量（推荐），或者对象)
-    查看变量是否存在if(var in window）{...code...}
-
-4.null(常用于对象，也可以直接赋值于对象(推荐)|变量)
-
-5.object(数组，列表包含于此，非基本类型的类型)
-
-    可以通过delete删除对象key in和forin 查询打印等操作
-
-6.boolean(真假)
-
-7.symbol
-
-tips:以及已经存在的函数方法  会有function 类型
-可以通过typeof var 来查看变量类型
-</code></pre><h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Q:为什么我设置了监听mouse(touch)却在设备上无法使用</span><br><span class="line">A:或许你该看看该设配是否支持mouse(touch) 下面命令</span><br><span class="line">        document.body.ontouchstart !== undefined</span><br><span class="line">        undefine:未定义，不支持</span><br><span class="line">        null:未初始化，支持</span><br><span class="line">        //通过特性检测来解决问题</span><br><span class="line">        if(document.body.ontouchstart !== undefined)&#123;//特性检测</span><br><span class="line">            //监听touch</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">            //监听mouse</span><br><span class="line">         &#125;</span><br><span class="line">Q：NULL和undefined的区别</span><br><span class="line">A：一个变量没有被赋值则是undefined(更被js所接受)</span><br><span class="line">    一个对象object暂时不给值，则给一个NULL（推荐，也可以给undefined）</span><br><span class="line">    一个非对象值推荐给undefined(变量不赋给值默认Undefined，可写可不写)</span><br><span class="line">      NULL表示空对象，undefined表示非空对象</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2853,7 +2890,7 @@ tips:以及已经存在的函数方法  会有function 类型
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
