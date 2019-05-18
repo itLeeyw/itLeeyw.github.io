@@ -229,6 +229,392 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/Browser-Same-origin-policy-EvaSion-Method/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/18/Browser-Same-origin-policy-EvaSion-Method/" itemprop="url">Browser-Same-origin-policy-EvaSion-Method</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T13:47:21+08:00">
+                2019-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="浏览器同源政策以及规避方法"><a href="#浏览器同源政策以及规避方法" class="headerlink" title="浏览器同源政策以及规避方法"></a>浏览器同源政策以及规避方法</h1><blockquote>
+<p>浏览器安全的基石是”同源政策”（same-origin policy）</p>
+</blockquote>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><blockquote>
+<p>同源政策为Netscape公司于1995年引入浏览器。<br>目前，所有浏览器都实行这个政策</p>
+</blockquote>
+<h3 id="1）含义"><a href="#1）含义" class="headerlink" title="1）含义"></a>1）含义</h3><blockquote>
+<p>“同源”</p>
+<blockquote>
+<p>A网页设置Cookie，B网页不能打开，除非“同源”</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>“同源”三同：<ol>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>目的</p>
+<blockquote>
+<p>保证Client信息安全，防止被恶意窃取数据。<br>例如：<br>用户C访问网站A，用户登陆后又去访问网站B(恶意网站)，若网站B可读取A网站Cookie？</p>
+<ol>
+<li>B网站通过Cookie获取到用户C的信息（若Cookie包含隐私，则会隐私泄露）</li>
+<li>由于Cookie往往是来保存登陆信息，若用户没有退出登陆，则网站B可以冒充用户：为所欲为。浏览器规定：提交表单不受同源政策限制<br>综上所述<br>同源政策是必须的，“同源政策”越严格，用户安全性更高，网站安全性更高。（防止Cookie共享）</li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>限制范围</p>
+<blockquote>
+<p>若非“同源”，则 共有三种行为限制</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Cookie,LocalStorage 和 IndexDB 无法读取</li>
+<li>DOM无法获得</li>
+<li><p>AJAX请求无法发送</p>
+<p>虽然这些限制是必要的，但是有时很不方便，合理的用途也受到影响。下述将如何规避这些限制</p>
+</li>
+</ul>
+<h2 id="二、Cookie"><a href="#二、Cookie" class="headerlink" title="二、Cookie"></a>二、Cookie</h2><blockquote>
+<p>Cookie是Server给Browser的一段信息，只有“同源”网页才能共享 但有时同属网页下，会出现一级域名相同二级域名不同的情况？<br>不同的网页通过设置相同的document.domain来共享Cookie</p>
+</blockquote>
+<pre><code>document.domain = &quot;example.com&quot;
+</code></pre><p>所以现在网页A通过脚本设置一个Cookie</p>
+<pre><code>documenet.cookie = &quot;test = lwh&quot;
+</code></pre><p> 网页B就可以读取到这个Cookie</p>
+<pre><code>var allCookie = document.cookie
+</code></pre><blockquote>
+<p>这种方法只适用于Cookie以及iframe窗口，LocalStorage以及IndexDB无法通过这种方法，规避“同源政策”，就需要使用PostMessage API</p>
+</blockquote>
+<blockquote>
+<p>另外：Server在设置Cookie时，指定Cookie的所属域名为y一级域名，例如，.example.com</p>
+</blockquote>
+<pre><code>Set-Cookie:key=value;domain=.example.com;path = /
+
+此后下属，二/三级域名不用做任何设置都可以读取这个Cookie
+</code></pre><h2 id="三、iframe"><a href="#三、iframe" class="headerlink" title="三、iframe"></a>三、iframe</h2><blockquote>
+<p>两个网页不同源，则无法获取到对方DOM</p>
+<blockquote>
+<p>例子：<br>iframe 以及 window.open 打开的窗口都无法与父窗口通信</p>
+</blockquote>
+</blockquote>
+<pre><code>强行访问则会报错  
+// Uncaught DOMException: Blocked a frame from accessing a cross-origin frame.
+未捕获，DOM异常：阻止了一个frame访问跨源frame
+
+无论子访问父or父访问子的DOM 都会报错
+</code></pre><blockquote>
+<p>三种方法解决跨域访问的通信问题</p>
+<pre><code>1. 片段识别符（fragment identifier）
+2. window.name
+3. 跨文档通信API(Cross-document messaging)
+</code></pre></blockquote>
+<ul>
+<li><ol>
+<li><p>片段识别符（fragment identifier）</p>
+<blockquote>
+<p>URL # 号后面部分例如：<br><a href="http://example.com/x.html#fragment的fragment就是偏度识别符，改变片段识别符，页面不会重新刷新" target="_blank" rel="noopener">http://example.com/x.html#fragment的fragment就是偏度识别符，改变片段识别符，页面不会重新刷新</a></p>
+<blockquote>
+<p>父窗口可以把信息写入子窗口的片段识别符</p>
+</blockquote>
+</blockquote>
+<pre><code>var src = originURL + &apos;#&apos; + data;
+document.getElementById(&apos;myIFrame&apos;).src = src;
+</code></pre><blockquote>
+<blockquote>
+<p>子窗口通过 监听 hashchange 事件得到通知</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>window.onhashchange = checkMessage;
+
+function checkMessage() {
+  var message = window.location.hash;
+  // ...
+}
+</code></pre><blockquote>
+<blockquote>
+<p>同时，子窗口也可以改变父窗口的片段标识</p>
+</blockquote>
+</blockquote>
+<pre><code>parent.location.href= target + &quot;#&quot; + hash;
+</code></pre><ul>
+<li><ol start="2">
+<li><p>window.name</p>
+<blockquote>
+<p>Browser Window 有 window.name 属性</p>
+<blockquote>
+<p>window.name 特点：无论是否同源只要在同一个窗口中，前一个网页设置了这个属性，后一个网页可以读取它<br>父窗口首先打开一子窗口，载入一不同源网页，该网页将信息写入window.name属性</p>
+</blockquote>
+</blockquote>
+<p> window.name = data;</p>
+<blockquote>
+<blockquote>
+<p>接着，子窗口跳回一个与主窗口同域的网址</p>
+</blockquote>
+</blockquote>
+<p> location = ‘<a href="http://parent.url.com/xxx.html&#39;" target="_blank" rel="noopener">http://parent.url.com/xxx.html&#39;</a>;</p>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>然后，主窗口就可以读取子窗口的window.name了</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<pre><code>    var data = document.getElementById(&apos;myFrame&apos;).contentWindow.name;
+&gt; 优点:window.name 容量很大，可以放置非常长的字符串，缺点是必须监听window.name属性变化影响网页性能
+</code></pre><ul>
+<li><ol start="3">
+<li>postMessage<blockquote>
+<p>上面两种办法属于破解，这种办法是HTML5为了解决这个问题，引入的一个新API:跨文档通信API(Cross-Document Message )</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>&gt; 这个API为window对象新增了一个window.postMessage方法，允许跨窗口通信，不论这两个窗口是否同源。举例来说，父窗口http://aaa.com向子窗口http://bbb.com发消息，调用postMessage方法就可以了。
+
+    var popup = window.open(&apos;http://bbb.com&apos;, &apos;title&apos;);
+    popup.postMessage(&apos;Hello World!&apos;, &apos;http://bbb.com&apos;);
+&gt; postMessage方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即&quot;协议 + 域名 + 端口&quot;。也可以设为*，表示不限制域名，向所有窗口发送。
+
+
+&gt;子窗口向父窗口发送消息的写法类似。
+
+    window.opener.postMessage(&apos;Nice to see you&apos;, &apos;http://aaa.com&apos;);
+&gt; 父窗口和子窗口都可以通过message事件，监听对方的消息。
+
+    window.addEventListener(&apos;message&apos;, function(e) {
+      console.log(e.data);
+      },false);
+
+
+&gt; message事件的事件对象event，提供以下三个属性。
+
+  * event.source：发送消息的窗口
+  * event.origin: 消息发向的网址
+  * event.data: 消息内容
+&gt;  event.origin属性可以过滤不是发给本窗口的消息。
+
+
+    window.addEventListener(&apos;message&apos;, receiveMessage);function receiveMessage(event) {
+      if (event.origin !== &apos;http://aaa.com&apos;) return;
+      if (event.data === &apos;Hello World&apos;) {
+          event.source.postMessage(&apos;Hello&apos;, event.origin);
+      } else {
+        console.log(event.data);
+      }}
+</code></pre><ul>
+<li><ol start="4">
+<li><p>LocalStorage </p>
+<blockquote>
+<p>通过window.postMessage，读写其他窗口的 LocalStorage 也成为了可能。下面是一个例子，主窗口写入iframe子窗口的localStorage。</p>
+</blockquote>
+<p> window.onmessage = function(e) {<br>   if (e.origin !== ‘<a href="http://bbb.com&#39;" target="_blank" rel="noopener">http://bbb.com&#39;</a>) {</p>
+<pre><code>return;
+</code></pre><p>   }<br>   var payload = JSON.parse(e.data);<br>   localStorage.setItem(payload.key, JSON.stringify(payload.data));};</p>
+</li>
+</ol>
+<blockquote>
+<p> 上面代码中，子窗口将父窗口发来的消息，写入自己的LocalStorage。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="四、AJAX"><a href="#四、AJAX" class="headerlink" title="四、AJAX"></a>四、AJAX</h3><blockquote>
+<p> 同源政策规定，AJAX只能请求同源网址，否则报错</p>
+</blockquote>
+<blockquote>
+<p>除了架设服务器代理(Browser request 同源Server，再由后者request 外部服务)，有三种办法规避这个限制</p>
+</blockquote>
+<ul>
+<li>JSONP</li>
+<li>WebSocket</li>
+<li>CORS</li>
+</ul>
+<blockquote>
+<ol>
+<li>JSONP  <blockquote>
+<p>JSONP是Server于Client跨源通信的常用方法<br>特点：简单适用，老式Browser全部支持，服务器改动较小<br>它的基本思想是，网页通过添加一个<script>元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。<br>首先，网页动态插入<script>元素，由它向跨源网址发出请求。</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<pre><code>function addScriptTag(src) {
+  var script = document.createElement(&apos;script&apos;);
+  script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
+  script.src = src;
+  document.body.appendChild(script);}
+
+window.onload = function () {
+  addScriptTag(&apos;http://example.com/ip?callback=foo&apos;);}
+
+function foo(data) {
+  console.log(&apos;Your public IP address is: &apos; + data.ip);
+</code></pre><blockquote>
+<p>上面代码通过动态添加<script>元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。</p>
+</blockquote>
+<blockquote>
+<p>服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。</p>
+</blockquote>
+<pre><code>foo({
+  &quot;ip&quot;: &quot;8.8.8.8&quot;
+  });
+</code></pre><blockquote>
+<p>由于<script>元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。</p>
+</blockquote>
+<ul>
+<li><ol start="2">
+<li><p>WebSocket</p>
+<blockquote>
+<p>WebSocket是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。<br>例子，浏览器发出的WebSocket请求头信息：</p>
+</blockquote>
+<p>   GET /chat HTTP/1.1<br>   Host: server.example.com<br>   Upgrade: websocket<br>   Connection: Upgrade<br>   Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==<br>   Sec-WebSocket-Protocol: chat, superchat<br>   Sec-WebSocket-Version: 13<br>   Origin: <a href="http://example.com">http://example.com</a></p>
+<blockquote>
+<p>上面代码中，有一个字段是Origin，表示该请求的请求源（origin），即发自哪个域名。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>正是因为有了Origin这个字段，所以WebSocket才没有实行同源政策。因为服务器可以根据这个字段，判断是否许可本次通信。如果该域名在白名单内，服务器就会做出如下回应。</p>
+</blockquote>
+<pre><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept:     HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+Sec-WebSocket-Protocol: chat
+</code></pre><ul>
+<li><ol start="3">
+<li>CORS(Cross-Origin Resource Sharing):跨域资源分享<blockquote>
+<p>W3C标准，是跨域AJAX请求的根本解决方案，相比JSONP只能发送GET 请求，CORS允许任何类型的请求。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">阮一峰：浏览器同源政策及其规避方法</a></p>
+</script></p></blockquote></li></ol></blockquote>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/HTTP-StatusCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2720,126 +3106,6 @@ person1.constructor.name
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/Disable-cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeeywBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/07/Disable-cache/" itemprop="url">Disable-cache</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T23:04:17+08:00">
-                2019-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="如果你更改了代码，却发现页面没有更新时"><a href="#如果你更改了代码，却发现页面没有更新时" class="headerlink" title="如果你更改了代码，却发现页面没有更新时"></a>如果你更改了代码，却发现页面没有更新时</h1><h3 id="1-打开当前页面的开发者工具"><a href="#1-打开当前页面的开发者工具" class="headerlink" title="1. 打开当前页面的开发者工具"></a>1. 打开当前页面的开发者工具</h3><h3 id="2-点开Network"><a href="#2-点开Network" class="headerlink" title="2. 点开Network"></a>2. 点开Network</h3><h3 id="3-勾选Disable-Cache"><a href="#3-勾选Disable-Cache" class="headerlink" title="3. 勾选Disable Cache"></a>3. 勾选Disable Cache</h3><h3 id="4-再关闭开发者工具前，缓存会一直被禁用"><a href="#4-再关闭开发者工具前，缓存会一直被禁用" class="headerlink" title="4. 再关闭开发者工具前，缓存会一直被禁用"></a>4. 再关闭开发者工具前，缓存会一直被禁用</h3><p><img src="https://video.jirengu.com/xdml/image/3ac7c224-c23d-491f-84b5-4fabfbeab9b8/2018-10-14-11-1-53.png" alt="图解"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2890,7 +3156,7 @@ person1.constructor.name
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
