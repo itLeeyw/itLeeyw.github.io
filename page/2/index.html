@@ -229,6 +229,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/flask-redies-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leeyw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeywBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/21/flask-redies-mysql/" itemprop="url">flask+redies+mysql</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T23:30:26+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="flask-redis-问题"><a href="#flask-redis-问题" class="headerlink" title="flask+ redis 问题"></a>flask+ redis 问题</h1><h4 id="链接redis-时候出现SQLALCHEMY-TRACK-MODIFICATIONS报错"><a href="#链接redis-时候出现SQLALCHEMY-TRACK-MODIFICATIONS报错" class="headerlink" title="链接redis 时候出现SQLALCHEMY_TRACK_MODIFICATIONS报错"></a>链接redis 时候出现SQLALCHEMY_TRACK_MODIFICATIONS报错</h4><blockquote>
+<p>回退版本 Flask_sqlalchey  2.2 &gt;&gt; 2.1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`track_modifications = app.config[&apos;SQLALCHEMY_TRACK_MODIFICATIONS&apos;] 报错，需要进行flask的sqlalchemy版本进行回退操作语句 pip install Flask-SQLAlchemy==2.1  `</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="flask-连接数据库"><a href="#flask-连接数据库" class="headerlink" title="flask 连接数据库"></a>flask 连接数据库</h4><p>  setting.py  配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DIALECT = &apos;mysql&apos;</span><br><span class="line">    DRIVER = &apos;pymysql&apos;</span><br><span class="line">    USERNAME = &apos;root&apos;</span><br><span class="line">    PASSWORD = &apos;123456&apos;</span><br><span class="line">    HOST = &apos;127.0.0.1&apos;</span><br><span class="line">    PORT = &apos;3306&apos;</span><br><span class="line">    DATABASE = &apos;cms&apos;</span><br><span class="line"> </span><br><span class="line">    SQLALCHEMY_DATABASE_URI = &apos;&#123;&#125;+&#123;&#125;://&#123;&#125;:&#123;&#125;@&#123;&#125;:&#123;&#125;/&#123;&#125;?charset=utf8&apos;.format(</span><br><span class="line">        DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE</span><br><span class="line">    )</span><br><span class="line">    SQLALCHEMY_COMMIT_ON_TEARDOWN = True</span><br><span class="line">    SQLALCHEMY_TRACK_MODIFICATIONS = True</span><br></pre></td></tr></table></figure></p>
+<p>manage.py  连接数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">db = SQLAlchemy(app)</span><br></pre></td></tr></table></figure>
+<p>models.py  创建表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from manage import db</span><br><span class="line"> </span><br><span class="line">class User(db.Model):</span><br><span class="line">    pass</span><br><span class="line"> </span><br><span class="line">class CodeCountRecord(db.Model):</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure></p>
+<h4 id="数据迁移-Django-也有这个migrate-还不用下载-美滋滋"><a href="#数据迁移-Django-也有这个migrate-还不用下载-美滋滋" class="headerlink" title="数据迁移  Django 也有这个migrate 还不用下载 美滋滋"></a>数据迁移  Django 也有这个migrate 还不用下载 美滋滋</h4><blockquote>
+<p> pip安装flask-script , flask-migrate</p>
+</blockquote>
+<p>modle.py 对于表的操作流程（在一个文件中是这样）.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">from flask_script import Manager</span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">from flask_migrate import Migrate,MigrateCommand</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[&apos;SQLALCHEMY_COMMIT_ON_TEARDOWN&apos;] = True</span><br><span class="line">app.config[&apos;SQLALCHEMY_TRACK_MODIFICATIONS&apos;] = True</span><br><span class="line">app.config[&apos;SQLALCHEMY_DATABASE_URI&apos;] = &apos;你的数据库路径(相关格式百度)&apos; #使用你的数据库</span><br><span class="line">db = SQLAlchemy(app)  #ORM</span><br><span class="line"></span><br><span class="line">migrate = Migrate(app,db)</span><br><span class="line">manager = Manager(app)</span><br><span class="line">manager.add_command(&apos;db&apos;,MigrateCommand) #添加db 命令（runserver的用法）</span><br><span class="line"></span><br><span class="line">#一个用户表</span><br><span class="line">class User(db.Model):</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">省略</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
+<p>在命令行界面 运行如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python main.py db init  #创建数据表。并且会在你项目下生成migrations/目录，保存你数据库每次变更的内容。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">python main.py db migrate #提交修改</span><br><span class="line"></span><br><span class="line">python main.py db upgrade #执行修改 </span><br><span class="line"></span><br><span class="line">再看User表，已经改变。 </span><br><span class="line">python main.py db downgrade #回退修改</span><br></pre></td></tr></table></figure>
+<h2 id="使用flask迁移数据库-二次创建表问题"><a href="#使用flask迁移数据库-二次创建表问题" class="headerlink" title="使用flask迁移数据库,二次创建表问题"></a>使用flask迁移数据库,二次创建表问题</h2><blockquote>
+<p>那么只需在模型类里面添加语句<br><code>table_args = {&quot;extend_existing&quot;: True}</code></p>
+</blockquote>
+<hr>
+<h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><p><a href="https://www.jianshu.com/p/0028df446b54" target="_blank" rel="noopener">二次建表</a><br><a href="https://www.cnblogs.com/wxiaoyu/p/9526673.html" target="_blank" rel="noopener">数据库连接+迁移</a><br><a href="https://blog.csdn.net/baidu_35085676/article/details/78079120" target="_blank" rel="noopener">数据连库接+迁移2</a><br><a href="https://www.cnblogs.com/6324TV/p/9203838.html" target="_blank" rel="noopener">使用falsk_SQLAlchemy连接MySQL</a><br><a href="https://www.cnblogs.com/String-Lee/p/10061675.html" target="_blank" rel="noopener">flask报错 KeyError ‘SQLALCHEMY_TRACK_MODIFICATIONS’.md (还是回退版本好用~)</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/css-history/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1818,139 +1956,11 @@ tips:以及已经存在的函数方法  会有function 类型
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeeywBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/07/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T12:40:02+08:00">
-                2019-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1996,7 +2006,7 @@ tips:以及已经存在的函数方法  会有function 类型
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
